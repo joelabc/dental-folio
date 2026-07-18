@@ -1,0 +1,1842 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Style Guide | Poly Dental Clinic</title>
+    <meta name="description" content="Internal component and usage guide for the Poly Dental Clinic site." />
+    <meta name="robots" content="noindex,nofollow" />
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <script>document.documentElement.classList.add('js');</script>
+    <style>
+      .sg-toc {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 1.25rem;
+      }
+      .sg-toc a {
+        padding: 0.45rem 0.8rem;
+        border-radius: 999px;
+        background: rgba(17, 17, 17, 0.05);
+        border: 1px solid rgba(201, 162, 39, 0.22);
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--text);
+      }
+      .sg-toc a:hover {
+        background: rgba(201, 162, 39, 0.14);
+      }
+      .sg-block {
+        display: grid;
+        gap: 1rem;
+        margin-top: 1.5rem;
+        padding: 1.25rem;
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.7);
+      }
+      .sg-block + .sg-block {
+        margin-top: 1.25rem;
+      }
+      .sg-label {
+        font-size: 0.72rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #8c6b10;
+        font-weight: 700;
+      }
+      .sg-preview {
+        display: grid;
+        gap: 1rem;
+        padding: 1.25rem;
+        border-radius: var(--radius-md);
+        background: linear-gradient(180deg, rgba(255, 253, 246, 0.92), rgba(251, 245, 229, 0.85));
+        border: 1px dashed rgba(201, 162, 39, 0.4);
+      }
+      .sg-preview.is-dark {
+        background: linear-gradient(180deg, #161616, #0a0a0a);
+        border-color: rgba(201, 162, 39, 0.4);
+        color: #fff;
+      }
+      pre.sg-code {
+        margin: 0;
+        padding: 1rem 1.1rem;
+        border-radius: var(--radius-md);
+        background: #0e0e0e;
+        color: #f5efe1;
+        font-family: "JetBrains Mono", Menlo, Consolas, monospace;
+        font-size: 0.82rem;
+        line-height: 1.55;
+        overflow-x: auto;
+        border: 1px solid rgba(201, 162, 39, 0.18);
+      }
+      .sg-swatches {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+        gap: 0.85rem;
+      }
+      .sg-swatch {
+        display: grid;
+        gap: 0.3rem;
+        padding: 0.75rem;
+        border-radius: var(--radius-md);
+        border: 1px solid rgba(17, 17, 17, 0.08);
+        background: rgba(255, 255, 255, 0.7);
+        font-size: 0.8rem;
+      }
+      .sg-swatch-chip {
+        height: 3rem;
+        border-radius: 10px;
+        border: 1px solid rgba(17, 17, 17, 0.06);
+      }
+      .sg-swatch code {
+        font-family: "JetBrains Mono", Menlo, Consolas, monospace;
+        font-size: 0.75rem;
+        color: var(--text-muted);
+      }
+      .sg-type-row {
+        display: grid;
+        gap: 0.35rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.06);
+      }
+      .sg-type-row:last-child {
+        border-bottom: 0;
+      }
+      .sg-type-meta {
+        font-family: "JetBrains Mono", Menlo, Consolas, monospace;
+        font-size: 0.75rem;
+        color: var(--text-muted);
+      }
+
+      /* ---- Imagery showcase ---- */
+      .sg-img-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 1rem;
+      }
+      .sg-img-card {
+        position: relative;
+        aspect-ratio: 4 / 5;
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        background: linear-gradient(135deg, #1a1a1a, #2c2418);
+        box-shadow: var(--shadow-soft);
+      }
+      .sg-img-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s ease, filter 0.6s ease;
+      }
+      .sg-img-card:hover img {
+        transform: scale(1.06);
+        filter: brightness(0.85);
+      }
+      .sg-img-overlay {
+        position: absolute;
+        inset: auto 0 0 0;
+        padding: 1rem;
+        color: #fff;
+        background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.75));
+        display: grid;
+        gap: 0.2rem;
+      }
+      .sg-img-overlay strong {
+        font-size: 0.95rem;
+        letter-spacing: -0.01em;
+      }
+      .sg-img-overlay span {
+        font-size: 0.75rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--gold-soft);
+      }
+      .sg-img-tag {
+        position: absolute;
+        top: 0.75rem;
+        left: 0.75rem;
+        padding: 0.3rem 0.6rem;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.85);
+        color: #111;
+        backdrop-filter: blur(6px);
+      }
+
+      .sg-mosaic {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: 110px;
+        gap: 0.75rem;
+      }
+      .sg-mosaic-tile {
+        border-radius: var(--radius-md);
+        background-size: cover;
+        background-position: center;
+        box-shadow: var(--shadow-soft);
+        position: relative;
+        overflow: hidden;
+      }
+      .sg-mosaic-tile::after {
+        content: attr(data-label);
+        position: absolute;
+        left: 0.6rem;
+        bottom: 0.45rem;
+        padding: 0.2rem 0.55rem;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        border-radius: 999px;
+        background: rgba(0, 0, 0, 0.55);
+        color: #fff;
+      }
+      .sg-mosaic-tile.is-wide { grid-column: span 2; }
+      .sg-mosaic-tile.is-tall { grid-row: span 2; }
+      .sg-mosaic-a { background: linear-gradient(135deg, #1f1d18, #46371a); }
+      .sg-mosaic-b { background: linear-gradient(135deg, #e7d08b, #c9a227); }
+      .sg-mosaic-c { background: linear-gradient(135deg, #2b2b2b, #111); }
+      .sg-mosaic-d { background: linear-gradient(135deg, #f6e8b9, #f9f3e1); color: #111; }
+      .sg-mosaic-e { background: linear-gradient(135deg, #c9a227, #8c6b10); }
+      .sg-mosaic-f { background: linear-gradient(135deg, #303030, #161616); }
+
+      /* ---- Before / After slider ---- */
+      .sg-ba {
+        position: relative;
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        aspect-ratio: 16 / 9;
+        box-shadow: var(--shadow-soft);
+        --ba: 50%;
+      }
+      .sg-ba-img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+      }
+      .sg-ba-before { background: linear-gradient(135deg, #2a2a2a, #5b5040); }
+      .sg-ba-after  {
+        background: linear-gradient(135deg, #f6e8b9, #c9a227);
+        clip-path: inset(0 calc(100% - var(--ba)) 0 0);
+      }
+      .sg-ba-label {
+        position: absolute;
+        top: 0.75rem;
+        padding: 0.3rem 0.65rem;
+        border-radius: 999px;
+        background: rgba(0, 0, 0, 0.55);
+        color: #fff;
+        font-size: 0.7rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+      .sg-ba-label.is-before { left: 0.75rem; }
+      .sg-ba-label.is-after  { right: 0.75rem; background: rgba(201, 162, 39, 0.92); color: #111; }
+      .sg-ba-handle {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: var(--ba);
+        width: 2px;
+        background: #fff;
+        transform: translateX(-1px);
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
+        pointer-events: none;
+      }
+      .sg-ba-handle::after {
+        content: "\2194";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        background: #fff;
+        color: #111;
+        display: grid;
+        place-items: center;
+        font-weight: 700;
+        box-shadow: var(--shadow-soft);
+      }
+      .sg-ba-input {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        cursor: ew-resize;
+        margin: 0;
+      }
+
+      /* ---- Sales funnel ---- */
+      .sg-funnel {
+        display: grid;
+        gap: 0.5rem;
+        align-items: center;
+        justify-items: center;
+      }
+      .sg-funnel-step {
+        width: 100%;
+        max-width: 540px;
+        padding: 1rem 1.25rem;
+        border-radius: var(--radius-md);
+        background: linear-gradient(135deg, rgba(201, 162, 39, 0.95), rgba(140, 107, 16, 0.95));
+        color: #fff;
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+        gap: 0.85rem;
+        box-shadow: var(--shadow-soft);
+      }
+      .sg-funnel-step + .sg-funnel-step { max-width: 480px; }
+      .sg-funnel-step:nth-child(3) { max-width: 400px; }
+      .sg-funnel-step:nth-child(4) { max-width: 320px; }
+      .sg-funnel-step:nth-child(5) {
+        max-width: 240px;
+        background: linear-gradient(135deg, #161616, #2a2418);
+      }
+      .sg-funnel-step h4 {
+        margin: 0;
+        font-size: 0.95rem;
+        letter-spacing: -0.01em;
+      }
+      .sg-funnel-step p {
+        margin: 0.1rem 0 0;
+        font-size: 0.78rem;
+        opacity: 0.85;
+      }
+      .sg-funnel-num {
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.18);
+        display: grid;
+        place-items: center;
+        font-weight: 800;
+        font-size: 0.9rem;
+      }
+      .sg-funnel-pct {
+        font-family: "JetBrains Mono", Menlo, Consolas, monospace;
+        font-size: 0.8rem;
+        font-weight: 700;
+        background: rgba(255, 255, 255, 0.18);
+        padding: 0.25rem 0.55rem;
+        border-radius: 999px;
+      }
+
+      /* ---- Promo banner ---- */
+      .sg-promo-banner {
+        position: relative;
+        border-radius: var(--radius-lg);
+        padding: 2rem clamp(1.5rem, 4vw, 3rem);
+        color: #fff;
+        background:
+          radial-gradient(circle at 18% 22%, rgba(201, 162, 39, 0.45), transparent 55%),
+          radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.12), transparent 60%),
+          linear-gradient(135deg, #0e0e0e 0%, #1c1a14 60%, #2b2210 100%);
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+        gap: 1.5rem;
+        overflow: hidden;
+      }
+      .sg-promo-banner::before {
+        content: "MEGA SALE";
+        position: absolute;
+        right: -2rem;
+        bottom: -1.5rem;
+        font-family: var(--display-font);
+        font-size: clamp(4rem, 10vw, 8rem);
+        font-weight: 800;
+        color: rgba(201, 162, 39, 0.12);
+        letter-spacing: -0.05em;
+        pointer-events: none;
+      }
+      .sg-promo-eyebrow {
+        display: inline-block;
+        padding: 0.3rem 0.7rem;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        border-radius: 999px;
+        background: rgba(201, 162, 39, 0.25);
+        color: var(--gold-soft);
+        margin-bottom: 0.7rem;
+      }
+      .sg-promo-title {
+        font-family: var(--display-font);
+        font-size: clamp(1.8rem, 3.4vw, 2.8rem);
+        line-height: 1.05;
+        letter-spacing: -0.03em;
+        margin: 0 0 0.6rem;
+      }
+      .sg-promo-title em {
+        font-style: normal;
+        background: linear-gradient(90deg, #f6e8b9, #c9a227);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .sg-promo-sub {
+        margin: 0 0 1rem;
+        color: rgba(255, 255, 255, 0.78);
+        max-width: 36rem;
+      }
+      .sg-promo-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.85rem 1.4rem;
+        border-radius: 999px;
+        background: var(--gold);
+        color: #111;
+        font-weight: 700;
+        text-decoration: none;
+        box-shadow: 0 10px 24px rgba(201, 162, 39, 0.35);
+      }
+      .sg-promo-meta {
+        display: grid;
+        gap: 0.4rem;
+        text-align: right;
+        position: relative;
+        z-index: 1;
+      }
+      .sg-promo-discount {
+        font-family: var(--display-font);
+        font-size: clamp(3rem, 6vw, 4.5rem);
+        font-weight: 800;
+        line-height: 1;
+        background: linear-gradient(180deg, #fff, #c9a227);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .sg-promo-meta small {
+        font-size: 0.75rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      /* ---- Offer cards ---- */
+      .sg-offers {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1rem;
+      }
+      .sg-offer-card {
+        position: relative;
+        padding: 1.4rem;
+        border-radius: var(--radius-md);
+        border: 1px solid rgba(201, 162, 39, 0.25);
+        background: linear-gradient(180deg, #ffffff, #fbf4dc);
+        overflow: hidden;
+        display: grid;
+        gap: 0.5rem;
+      }
+      .sg-offer-card.is-dark {
+        background: linear-gradient(180deg, #161616, #2a2210);
+        color: #fff;
+        border-color: rgba(201, 162, 39, 0.4);
+      }
+      .sg-offer-ribbon {
+        position: absolute;
+        top: 0.85rem;
+        right: -2.5rem;
+        transform: rotate(35deg);
+        background: var(--gold);
+        color: #111;
+        padding: 0.25rem 3rem;
+        font-size: 0.7rem;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      }
+      .sg-offer-price {
+        font-family: var(--display-font);
+        font-size: 1.9rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        line-height: 1;
+      }
+      .sg-offer-price small {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--text-muted);
+        text-decoration: line-through;
+        margin-left: 0.5rem;
+      }
+      .sg-offer-card.is-dark .sg-offer-price small { color: rgba(255, 255, 255, 0.55); }
+      .sg-offer-list {
+        margin: 0.3rem 0 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 0.4rem;
+        font-size: 0.88rem;
+        color: var(--text-muted);
+      }
+      .sg-offer-card.is-dark .sg-offer-list { color: rgba(255, 255, 255, 0.8); }
+      .sg-offer-list li::before {
+        content: "\2713  ";
+        color: var(--gold);
+        font-weight: 800;
+      }
+
+      /* ---- Pricing tiers ---- */
+      .sg-pricing {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1rem;
+      }
+      .sg-tier {
+        padding: 1.5rem;
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.9);
+        display: grid;
+        gap: 0.8rem;
+        box-shadow: var(--shadow-soft);
+      }
+      .sg-tier.is-featured {
+        background: linear-gradient(180deg, #fff8e2, #f6e8b9);
+        border-color: rgba(201, 162, 39, 0.5);
+        transform: translateY(-6px);
+      }
+      .sg-tier h4 {
+        margin: 0;
+        font-size: 0.85rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #8c6b10;
+      }
+      .sg-tier-price {
+        font-family: var(--display-font);
+        font-size: 2.2rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+      }
+      .sg-tier-price span {
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--text-muted);
+      }
+      .sg-tier ul {
+        margin: 0;
+        padding-left: 1.1rem;
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        display: grid;
+        gap: 0.35rem;
+      }
+
+      /* ---- Badges ---- */
+      .sg-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        align-items: center;
+      }
+      .sg-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.3rem 0.7rem;
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        border-radius: 999px;
+      }
+      .sg-badge-sale  { background: #c9a227; color: #111; }
+      .sg-badge-new   { background: #111; color: #fff; }
+      .sg-badge-hot   { background: linear-gradient(90deg, #d94f2a, #c9a227); color: #fff; }
+      .sg-badge-soft  { background: rgba(201, 162, 39, 0.15); color: #8c6b10; }
+      .sg-badge-outline {
+        background: transparent;
+        color: var(--accent-dark);
+        border: 1px solid rgba(17, 17, 17, 0.2);
+      }
+      .sg-badge-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: currentColor;
+        display: inline-block;
+      }
+
+      /* ---- Countdown ---- */
+      .sg-countdown {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0.6rem;
+        max-width: 460px;
+      }
+      .sg-count-cell {
+        padding: 0.9rem 0.5rem;
+        border-radius: var(--radius-md);
+        background: linear-gradient(180deg, #161616, #0a0a0a);
+        color: #fff;
+        text-align: center;
+        box-shadow: var(--shadow-soft);
+        border: 1px solid rgba(201, 162, 39, 0.25);
+      }
+      .sg-count-num {
+        display: block;
+        font-family: var(--display-font);
+        font-size: clamp(1.6rem, 3vw, 2.2rem);
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        background: linear-gradient(180deg, #fff, #e7d08b);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .sg-count-label {
+        font-size: 0.65rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      /* ---- Lead capture ---- */
+      .sg-lead {
+        border-radius: var(--radius-lg);
+        padding: 1.5rem;
+        background: linear-gradient(135deg, #fff8e2, #fbfaf7);
+        border: 1px solid rgba(201, 162, 39, 0.3);
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+        gap: 1rem;
+      }
+      .sg-lead h4 { margin: 0 0 0.25rem; }
+      .sg-lead p { margin: 0; color: var(--text-muted); font-size: 0.9rem; }
+      .sg-lead-form {
+        display: flex;
+        gap: 0.5rem;
+        align-items: stretch;
+      }
+      .sg-lead-form input {
+        padding: 0.7rem 0.9rem;
+        border-radius: 999px;
+        border: 1px solid rgba(17, 17, 17, 0.15);
+        background: #fff;
+        min-width: 220px;
+      }
+      .sg-lead-form button {
+        padding: 0.7rem 1.2rem;
+        border-radius: 999px;
+        border: 0;
+        background: var(--accent-dark);
+        color: #fff;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .sg-lead-form button:hover { background: #2a2410; }
+
+      @media (max-width: 760px) {
+        .sg-mosaic { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 120px; }
+        .sg-promo-banner { grid-template-columns: 1fr; }
+        .sg-promo-meta { text-align: left; }
+        .sg-funnel-step,
+        .sg-funnel-step + .sg-funnel-step,
+        .sg-funnel-step:nth-child(3),
+        .sg-funnel-step:nth-child(4),
+        .sg-funnel-step:nth-child(5) { max-width: 100%; }
+        .sg-lead { grid-template-columns: 1fr; }
+        .sg-lead-form { flex-direction: column; }
+        .sg-lead-form input { min-width: 0; width: 100%; }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="nav-shell">
+        <a class="brand" href="index.html" aria-label="Poly Dental Clinic home">
+          <span class="brand-mark">P</span>
+          <span class="brand-copy">
+            <strong>Poly Dental Clinic</strong>
+          </span>
+        </a>
+        <button
+          class="mobile-toggle"
+          type="button"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+          data-mobile-toggle
+        >
+          <span class="mobile-toggle-line" aria-hidden="true"></span>
+          <span class="mobile-toggle-line" aria-hidden="true"></span>
+          <span class="mobile-toggle-line" aria-hidden="true"></span>
+        </button>
+        <nav>
+          <div class="nav-links" id="primary-nav" data-nav-links>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="blog.html">Blogs</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="page-intro">
+        <div class="section-shell page-intro-grid">
+          <div class="page-intro-copy">
+            <span class="eyebrow">Internal reference</span>
+            <h1>Site components and usage guide.</h1>
+            <p>
+              Copy any markup snippet below into a page that links
+              <code>assets/css/styles.css</code> and includes the inline
+              <code>document.documentElement.classList.add('js')</code> bootstrap.
+              All components inherit the shared brand identity automatically.
+            </p>
+            <div class="sg-toc">
+              <a href="#foundations">Foundations</a>
+              <a href="#typography">Typography</a>
+              <a href="#buttons">Buttons</a>
+              <a href="#chips">Chips &amp; Eyebrows</a>
+              <a href="#layout">Layout shells</a>
+              <a href="#page-intro">Page intro</a>
+              <a href="#cards">Cards</a>
+              <a href="#story">Story panel</a>
+              <a href="#testimonials">Testimonials</a>
+              <a href="#cta">CTA banners</a>
+              <a href="#forms">Forms</a>
+              <a href="#imagery">Imagery</a>
+              <a href="#funnel">Sales funnel</a>
+              <a href="#promotions">Promotions</a>
+              <a href="#pricing">Pricing</a>
+              <a href="#badges">Badges</a>
+              <a href="#countdown">Countdown</a>
+              <a href="#lead">Lead capture</a>
+              <a href="#footer">Footer</a>
+            </div>
+          </div>
+          <div class="page-intro-panel">
+            <div class="page-intro-details">
+              <article class="intro-detail-card intro-detail-accent">
+                <span class="section-label">Stack</span>
+                <h3>Pure HTML, CSS, JS</h3>
+                <p>No build step. Every component is a copy-paste block that respects the design tokens defined in <code>:root</code>.</p>
+              </article>
+              <article class="intro-detail-card">
+                <span class="section-label">Tokens</span>
+                <h3>Tokens drive everything</h3>
+                <p>Colors, radii, gutters, and shadows come from CSS variables, so theming is centralized.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <section class="section" id="foundations">
+        <div class="section-shell">
+          <div class="section-head">
+            <div class="section-copy">
+              <span class="section-label">01 &middot; Foundations</span>
+              <h2>Design tokens.</h2>
+              <p class="section-lead">All colors and spacing read from CSS custom properties on <code>:root</code>. Override them in a single place to retheme the site.</p>
+            </div>
+          </div>
+
+          <div class="sg-block">
+            <span class="sg-label">Color palette</span>
+            <div class="sg-swatches">
+              <div class="sg-swatch"><div class="sg-swatch-chip" style="background:#fbfaf7"></div><strong>Background</strong><code>--bg</code></div>
+              <div class="sg-swatch"><div class="sg-swatch-chip" style="background:#f5f1e8"></div><strong>Elevated</strong><code>--bg-elevated</code></div>
+              <div class="sg-swatch"><div class="sg-swatch-chip" style="background:#171717"></div><strong>Text / Accent</strong><code>--text / --accent-dark</code></div>
+              <div class="sg-swatch"><div class="sg-swatch-chip" style="background:#6b655c"></div><strong>Muted</strong><code>--text-muted</code></div>
+              <div class="sg-swatch"><div class="sg-swatch-chip" style="background:#c9a227"></div><strong>Gold</strong><code>--gold</code></div>
+              <div class="sg-swatch"><div class="sg-swatch-chip" style="background:#e7d08b"></div><strong>Gold soft</strong><code>--gold-soft</code></div>
+            </div>
+            <pre class="sg-code">:root {
+  --bg: #fbfaf7;
+  --text: #171717;
+  --text-muted: #6b655c;
+  --gold: #c9a227;
+  --accent-dark: #111111;
+  --container: 1180px;
+  --gutter: clamp(1rem, 2.5vw, 1.5rem);
+  --radius-lg: 24px;
+  --radius-md: 16px;
+}</pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <section class="section" id="typography">
+        <div class="section-shell">
+          <div class="section-head">
+            <div class="section-copy">
+              <span class="section-label">02 &middot; Typography</span>
+              <h2>Headlines and body.</h2>
+              <p class="section-lead">All headings auto-scale with <code>clamp()</code> and use <code>text-wrap: balance</code> for editorial line breaks.</p>
+            </div>
+          </div>
+
+          <div class="sg-block">
+            <div class="sg-type-row">
+              <h1>H1 &mdash; The premium headline.</h1>
+              <span class="sg-type-meta">&lt;h1&gt; &middot; clamp(2.4rem, 5.4vw, 5.2rem)</span>
+            </div>
+            <div class="sg-type-row">
+              <h2>H2 &mdash; Section headline.</h2>
+              <span class="sg-type-meta">&lt;h2&gt; &middot; clamp(1.9rem, 4vw, 3.2rem)</span>
+            </div>
+            <div class="sg-type-row">
+              <h3>H3 &mdash; Sub-section headline.</h3>
+              <span class="sg-type-meta">&lt;h3&gt; &middot; clamp(1.5rem, 2.2vw, 2rem)</span>
+            </div>
+            <div class="sg-type-row">
+              <p class="section-lead">Section lead. A longer, slightly muted paragraph used to support a section headline.</p>
+              <span class="sg-type-meta">&lt;p class="section-lead"&gt;</span>
+            </div>
+            <div class="sg-type-row">
+              <p>Body paragraph. Default site text uses Plus Jakarta Sans at roughly 17px with comfortable line-height for readability.</p>
+              <span class="sg-type-meta">&lt;p&gt;</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <section class="section" id="buttons">
+        <div class="section-shell">
+          <div class="section-head">
+            <div class="section-copy">
+              <span class="section-label">03 &middot; Buttons</span>
+              <h2>Primary and secondary actions.</h2>
+              <p class="section-lead">Use <code>.inline-actions</code> as the wrapper for stacked mobile behavior and full-width tap targets.</p>
+            </div>
+          </div>
+
+          <div class="sg-block">
+            <span class="sg-label">Preview</span>
+            <div class="sg-preview">
+              <div class="inline-actions">
+                <a class="button" href="#">Primary action</a>
+                <a class="button-secondary" href="#">Secondary action</a>
+              </div>
+            </div>
+            <pre class="sg-code">&lt;div class="inline-actions"&gt;
+  &lt;a class="button" href="#"&gt;Primary action&lt;/a&gt;
+  &lt;a class="button-secondary" href="#"&gt;Secondary action&lt;/a&gt;
+&lt;/div&gt;</pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <section class="section" id="chips">
+        <div class="section-shell">
+          <div class="section-head">
+            <div class="section-copy">
+              <span class="section-label">04 &middot; Chips &amp; eyebrows</span>
+              <h2>Labels, eyebrows, and chips.</h2>
+              <p class="section-lead">Small typographic anchors used above headings and inside hero copy.</p>
+            </div>
+          </div>
+
+          <div class="sg-block">
+            <span class="sg-label">Eyebrow</span>
+            <div class="sg-preview">
+              <span class="eyebrow">Modern dependable dental care</span>
+            </div>
+            <pre class="sg-code">&lt;span class="eyebrow"&gt;Modern dependable dental care&lt;/span&gt;</pre>
+          </div>
+
+          <div class="sg-block">
+            <span class="sg-label">Section label</span>
+            <div class="sg-preview">
+              <span class="section-label">Section label</span>
+            </div>
+            <pre class="sg-code">&lt;span class="section-label"&gt;Section label&lt;/span&gt;</pre>
+          </div>
+
+          <div class="sg-block">
+            <span class="sg-label">Chip row (landing points)</span>
+            <div class="sg-preview">
+              <div class="landing-points">
+                <span>Digital diagnostics</span>
+                <span>Cosmetic and family care</span>
+                <span>Comfort-focused appointments</span>
+              </div>
+            </div>
+            <pre class="sg-code">&lt;div class="landing-points"&gt;
+  &lt;span&gt;Digital diagnostics&lt;/span&gt;
+  &lt;span&gt;Cosmetic and family care&lt;/span&gt;
+  &lt;span&gt;Comfort-focused appointments&lt;/span&gt;
+&lt;/div&gt;</pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <section class="section" id="layout">
+        <div class="section-shell">
+          <div class="section-head">
+            <div class="section-copy">
+              <span class="section-label">05 &middot; Layout shells</span>
+              <h2>Container and section shells.</h2>
+              <p class="section-lead">Every page section wraps content in <code>.section-shell</code> to enforce the container width and the responsive gutter.</p>
+            </div>
+          </div>
+
+          <div class="sg-block">
+            <span class="sg-label">Section shell</span>
+            <pre class="sg-code">&lt;section class="section"&gt;
+  &lt;div class="section-shell"&gt;
+    &lt;div class="section-head"&gt;
+      &lt;div class="section-copy"&gt;
+        &lt;span class="section-label"&gt;Eyebrow&lt;/span&gt;
+        &lt;h2&gt;Section headline.&lt;/h2&gt;
+        &lt;p class="section-lead"&gt;Supporting paragraph for the section.&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- section content here --&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <section class="section" id="page-intro">
+        <div class="section-shell">
+          <div class="section-head">
+            <div class="section-copy">
+              <span class="section-label">06 &middot; Page intro</span>
+              <h2>The premium page-intro pattern.</h2>
+              <p class="section-lead">Use this in place of a full hero on inner pages. Left side is editorial copy; right side is a dark detail panel.</p>
+            </div>
+          </div>
+
+          <div class="sg-block">
+            <span class="sg-label">Preview</span>
+            <div class="page-intro-grid" style="padding:1rem;">
+              <div class="page-intro-copy">
+                <span class="eyebrow">About the clinic</span>
+                <h2>Designed to feel modern, calm, and dependable.</h2>
+                <p>Replace this copy with your page-specific introduction. Keep it short, confident, and supported by one or two CTAs.</p>
+                <div class="inline-actions">
+                  <a class="button" href="#">Primary CTA</a>
+                  <a class="button-secondary" href="#">Secondary CTA</a>
+                </div>
+              </div>
+              <div class="page-intro-panel">
+                <div class="page-intro-details">
+                  <article class="intro-detail-card">
+                    <span class="section-label">Detail one</span>
+                    <h3>Headline for detail card</h3>
+                    <p>Short supporting paragraph for this detail card.</p>
+                  </article>
+                  <article class="intro-detail-card intro-detail-accent">
+                    <span class="section-label">Detail two</span>
+                    <h3>Accent variant card</h3>
+                    <p>Use the accent variant to emphasize a primary detail.</p>
+                  </article>
+                </div>
+              </div>
+            </div>
+            <pre class="sg-code">&lt;section class="page-intro"&gt;
+  &lt;div class="section-shell page-intro-grid"&gt;
+    &lt;div class="page-intro-copy"&gt;
+      &lt;span class="eyebrow"&gt;Eyebrow&lt;/span&gt;
+      &lt;h1&gt;Page headline.&lt;/h1&gt;
+      &lt;p&gt;Supporting paragraph.&lt;/p&gt;
+      &lt;div class="inline-actions"&gt;
+        &lt;a class="button" href="#"&gt;Primary&lt;/a&gt;
+        &lt;a class="button-secondary" href="#"&gt;Secondary&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="page-intro-panel"&gt;
+      &lt;div class="page-intro-details"&gt;
+        &lt;article class="intro-detail-card"&gt; ... &lt;/article&gt;
+        &lt;article class="intro-detail-card intro-detail-accent"&gt; ... &lt;/article&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <section class="section" id="cards">
+        <div class="section-shell">
+          <div class="section-head">
+            <div class="section-copy">
+              <span class="section-label">07 &middot; Cards</span>
+              <h2>Service, value, gallery, doctor, KPI.</h2>
+              <p class="section-lead">All cards share the same border and shadow tokens for visual consistency.</p>
+            </div>
+          </div>
+
+          <div class="sg-block">
+            <span class="sg-label">Service card (use inside <code>.service-grid</code>)</span>
+            <div class="sg-preview">
+              <article class="service-card" style="max-width:22rem;">
+                <div class="service-icon">01</div>
+                <h3>Preventive Dentistry</h3>
+                <p>Comprehensive exams, professional hygiene, digital x-rays, and preventive planning.</p>
+                <div class="card-note">Designed for long-term oral health and early intervention.</div>
+              </article>
+            </div>
+            <pre class="sg-code">&lt;article class="service-card"&gt;
+  &lt;div class="service-icon"&gt;01&lt;/div&gt;
+  &lt;h3&gt;Service name&lt;/h3&gt;
+  &lt;p&gt;Service description paragraph.&lt;/p&gt;
+  &lt;div class="card-note"&gt;Optional supporting note.&lt;/div&gt;
+&lt;/article&gt;</pre>
+          </div>
+
+          <div class="sg-block">
+            <span class="sg-label">Value card (use inside <code>.values-grid</code>)</span>
+            <div class="sg-preview">
+              <article class="value-card" style="max-width:22rem;">
+                <h3>Transparent planning</h3>
+                <p>Clear treatment roadmaps, digital previews, and no rushed decisions.</p>
+              </article>
+            </div>
+            <pre class="sg-code">&lt;article class="value-card"&gt;
+  &lt;h3&gt;Value name&lt;/h3&gt;
+  &lt;p&gt;Short supporting line.&lt;/p&gt;
+&lt;/article&gt;</pre>
+          </div>
+
+          <div class="sg-block">
+            <span class="sg-label">Gallery card (use inside <code>.gallery-grid</code>)</span>
+            <div class="sg-preview">
+              <article class="gallery-card" style="max-width:22rem;">
+                <div class="gallery-visual" data-label="Suite"></div>
+                <div class="gallery-tag">Treatment environment</div>
+                <h3>Private treatment suite</h3>
+                <p>Comfort-oriented rooms designed to support calm consultations and procedures.</p>
+              </article>
+            </div>
+            <pre class="sg-code">&lt;article class="gallery-card"&gt;
+  &lt;div class="gallery-visual" data-label="Suite"&gt;&lt;/div&gt;
+  &lt;div class="gallery-tag"&gt;Tag&lt;/div&gt;
+  &lt;h3&gt;Card title&lt;/h3&gt;
+  &lt;p&gt;Card description.&lt;/p&gt;
+&lt;/article&gt;</pre>
+          </div>
+
+          <div class="sg-block">
+            <span class="sg-label">Doctor card (use inside <code>.doctor-grid</code>)</span>
+            <div class="sg-preview">
+              <article class="doctor-card" style="max-width:18rem;">
+                <img src="assets/images/doctor-placeholder.svg" alt="Doctor profile placeholder" />
+                <div class="doctor-copy">
+                  <span class="doctor-role">Lead cosmetic dentist</span>
+                  <h3>Dr Amelia Hart</h3>
+                  <p>Focuses on smile design, veneers, and conservative aesthetic treatment planning.</p>
+                </div>
+              </article>
+            </div>
+            <pre class="sg-code">&lt;article class="doctor-card"&gt;
+  &lt;img src="..." alt="..." /&gt;
+  &lt;div class="doctor-copy"&gt;
+    &lt;span class="doctor-role"&gt;Role&lt;/span&gt;
+    &lt;h3&gt;Doctor name&lt;/h3&gt;
+    &lt;p&gt;Bio summary.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/article&gt;</pre>
+          </div>
+
+          <div class="sg-block">
+            <span class="sg-label">KPI / stat card</span>
+            <div class="sg-preview">
+              <article class="kpi" style="max-width:14rem;">
+                <div class="kpi-value">4.9</div>
+                <div class="kpi-label">Average patient rating</div>
+              </article>
+            </div>
+            <pre class="sg-code">&lt;article class="kpi"&gt;
+  &lt;div class="kpi-value"&gt;4.9&lt;/div&gt;
+  &lt;div class="kpi-label"&gt;Label text&lt;/div&gt;
+&lt;/article&gt;</pre>
+          </div>
+
+          <div class="sg-block">
+            <span class="sg-label">Intro detail card (dark variant, used inside <code>.page-intro-panel</code>)</span>
+            <div class="sg-preview is-dark">
+              <article class="intro-detail-card intro-detail-accent" style="max-width:22rem;">
+                <span class="section-label">Approach</span>
+                <h3>Clear, reassuring, and modern</h3>
+                <p>Care plans are explained simply, appointments run smoothly, and every visit feels considered.</p>
+              </article>
+            </div>
+            <pre class="sg-code">&lt;article class="intro-detail-card intro-detail-accent"&gt;
+  &lt;span class="section-label"&gt;Label&lt;/span&gt;
+  &lt;h3&gt;Card headline&lt;/h3&gt;
+  &lt;p&gt;Supporting paragraph.&lt;/p&gt;
+&lt;/article&gt;</pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <section class="section" id="story">
+        <div class="section-shell">
+          <div class="section-head">
+            <div class="section-copy">
+              <span class="section-label">08 &middot; Story panel</span>
+              <h2>Two-up editorial story.</h2>
+              <p class="section-lead">Use <code>.story-grid</code> with two <code>.story-panel</code> cards to deliver a long-form, side-by-side narrative.</p>
+            </div>
+          </div>
+
+          <div class="sg-block">
+            <div class="story-grid">
+              <article class="story-panel">
+                <h3>Simple to understand</h3>
+                <p>Clear treatment plans, digital explanations, and calm conversations help patients know what to expect.</p>
+                <div class="meta-list">
+                  <div><span>Appointments</span>Efficient booking and responsive follow-up</div>
+                  <div><span>Communication</span>Transparent explanations without jargon</div>
+                </div>
+              </article>
+              <article class="story-panel">
+                <h3>Designed for comfort</h3>
+                <p>A warm environment, modern technology, and a patient-first workflow reduce stress.</p>
+                <div class="meta-list">
+                  <div><span>Environment</span>Calm interiors with black and gold accents</div>
+                  <div><span>Care range</span>Preventive, cosmetic, restorative, and family dentistry</div>
+                </div>
+              </article>
+            </div>
+            <pre class="sg-code">&lt;div class="story-grid"&gt;
+  &lt;article class="story-panel"&gt;
+    &lt;h3&gt;Panel heading&lt;/h3&gt;
+    &lt;p&gt;Paragraph copy.&lt;/p&gt;
+    &lt;div class="meta-list"&gt;
+      &lt;div&gt;&lt;span&gt;Label&lt;/span&gt;Value text&lt;/div&gt;
+      &lt;div&gt;&lt;span&gt;Label&lt;/span&gt;Value text&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/article&gt;
+  &lt;article class="story-panel"&gt; ... &lt;/article&gt;
+&lt;/div&gt;</pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <section class="section" id="testimonials">
+        <div class="section-shell">
+          <div class="section-head">
+            <div class="section-copy">
+              <span class="section-label">09 &middot; Testimonials</span>
+              <h2>Auto-scrolling testimonial marquee.</h2>
+              <p class="section-lead">Duplicate the cards once with <code>aria-hidden="true"</code> to make the loop appear seamless.</p>
+            </div>
+          </div>
+
+          <div class="sg-block">
+            <div class="testimonial-marquee" aria-label="Testimonials">
+              <div class="testimonial-track">
+                <article class="testimonial-card">
+                  <p>&ldquo;The clinic feels calm, modern, and incredibly organized.&rdquo;</p>
+                  <strong>Marina L.</strong>
+                  <span>Cosmetic consultation</span>
+                </article>
+                <article class="testimonial-card">
+                  <p>&ldquo;The whole process felt simple and manageable.&rdquo;</p>
+                  <strong>David R.</strong>
+                  <span>Restorative care patient</span>
+                </article>
+                <article class="testimonial-card" aria-hidden="true">
+                  <p>&ldquo;The clinic feels calm, modern, and incredibly organized.&rdquo;</p>
+                  <strong>Marina L.</strong>
+                  <span>Cosmetic consultation</span>
+                </article>
+                <article class="testimonial-card" aria-hidden="true">
+                  <p>&ldquo;The whole process felt simple and manageable.&rdquo;</p>
+                  <strong>David R.</strong>
+                  <span>Restorative care patient</span>
+                </article>
+              </div>
+            </div>
+            <pre class="sg-code">&lt;div class="testimonial-marquee" aria-label="Testimonials"&gt;
+  &lt;div class="testimonial-track"&gt;
+    &lt;article class="testimonial-card"&gt;
+      &lt;p&gt;&amp;ldquo;Quote.&amp;rdquo;&lt;/p&gt;
+      &lt;strong&gt;Name&lt;/strong&gt;
+      &lt;span&gt;Context&lt;/span&gt;
+    &lt;/article&gt;
+    &lt;!-- duplicate cards with aria-hidden="true" for seamless loop --&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <section class="section" id="cta">
+        <div class="section-shell">
+          <div class="section-head">
+            <div class="section-copy">
+              <span class="section-label">10 &middot; CTA banners</span>
+              <h2>In-page CTA and footer CTA.</h2>
+              <p class="section-lead">Use <code>.cta-banner</code> inside a section, and <code>.footer-cta</code> as the pinned banner at the top of the footer.</p>
+            </div>
+          </div>
+
+          <div class="sg-block">
+            <span class="sg-label">Inline CTA banner</span>
+            <div class="cta-banner">
+              <div>
+                <h3>Need help choosing the right service?</h3>
+                <p>We can guide you through priorities, timing, and expected outcomes.</p>
+              </div>
+              <a class="button" href="#">Talk with the clinic</a>
+            </div>
+            <pre class="sg-code">&lt;div class="cta-banner"&gt;
+  &lt;div&gt;
+    &lt;h3&gt;CTA headline.&lt;/h3&gt;
+    &lt;p&gt;Supporting paragraph.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;a class="button" href="#"&gt;Action&lt;/a&gt;
+&lt;/div&gt;</pre>
+          </div>
+
+          <div class="sg-block">
+            <span class="sg-label">Footer CTA banner</span>
+            <aside class="footer-cta" aria-label="Book a visit">
+              <div class="footer-cta-copy">
+                <span class="section-label">Ready when you are</span>
+                <h3>Book your visit with Poly Dental Clinic.</h3>
+                <p>Same-week appointments, transparent treatment plans, and a calm clinic experience.</p>
+              </div>
+              <div class="footer-cta-actions">
+                <a class="button" href="#">Book a visit</a>
+                <a class="button-secondary" href="#">Call +1 (555) 014-2211</a>
+              </div>
+            </aside>
+            <pre class="sg-code">&lt;aside class="footer-cta" aria-label="Book a visit"&gt;
+  &lt;div class="footer-cta-copy"&gt;
+    &lt;span class="section-label"&gt;Eyebrow&lt;/span&gt;
+    &lt;h3&gt;Banner headline.&lt;/h3&gt;
+    &lt;p&gt;Supporting line.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="footer-cta-actions"&gt;
+    &lt;a class="button" href="#"&gt;Primary&lt;/a&gt;
+    &lt;a class="button-secondary" href="#"&gt;Secondary&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/aside&gt;</pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <section class="section" id="forms">
+        <div class="section-shell">
+          <div class="section-head">
+            <div class="section-copy">
+              <span class="section-label">11 &middot; Forms</span>
+              <h2>Form fields and validation states.</h2>
+              <p class="section-lead">Add <code>data-contact-form</code> to the form and <code>data-form-status</code> to the status paragraph so the shared script handles validation.</p>
+            </div>
+          </div>
+
+          <div class="sg-block">
+            <form class="contact-form" onsubmit="event.preventDefault();">
+              <div class="form-row">
+                <div class="field">
+                  <label for="sg-name">Full name</label>
+                  <input id="sg-name" type="text" placeholder="Jane Doe" />
+                </div>
+                <div class="field">
+                  <label for="sg-email">Email</label>
+                  <input id="sg-email" type="email" placeholder="jane@example.com" />
+                </div>
+              </div>
+              <div class="field">
+                <label for="sg-msg">Message</label>
+                <textarea id="sg-msg" rows="4" placeholder="How can we help?"></textarea>
+              </div>
+              <div class="field">
+                <label for="sg-error">Error state preview</label>
+                <input id="sg-error" type="text" class="is-invalid" aria-invalid="true" value="invalid value" />
+              </div>
+              <button class="button" type="submit">Send request</button>
+              <p class="form-status is-error">Please check the highlighted fields and try again.</p>
+              <p class="form-status is-success">Thanks. Your request was sent.</p>
+            </form>
+            <pre class="sg-code">&lt;form class="contact-form" data-contact-form novalidate&gt;
+  &lt;div class="form-row"&gt;
+    &lt;div class="field"&gt;
+      &lt;label for="name"&gt;Full name&lt;/label&gt;
+      &lt;input id="name" name="name" type="text" required aria-required="true" /&gt;
+    &lt;/div&gt;
+    &lt;div class="field"&gt;
+      &lt;label for="email"&gt;Email&lt;/label&gt;
+      &lt;input id="email" name="email" type="email" required aria-required="true" /&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="field"&gt;
+    &lt;label for="message"&gt;Message&lt;/label&gt;
+    &lt;textarea id="message" name="message" required aria-required="true"&gt;&lt;/textarea&gt;
+  &lt;/div&gt;
+  &lt;button class="button" type="submit"&gt;Send request&lt;/button&gt;
+  &lt;p class="form-status" data-form-status role="status" aria-live="polite"&gt;&lt;/p&gt;
+&lt;/form&gt;</pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- ============================================================ -->
+      <section class="section" id="imagery">
+        <div class="section-shell">
+          <div class="section-head">
+            <div class="section-copy">
+              <span class="section-label">Imagery</span>
+              <h2>Image cards, mosaic, and before / after.</h2>
+              <p class="section-lead">Visual building blocks for galleries, treatment showcases, and editorial layouts.</p>
+            </div>
+          </div>
+
+          <div class="sg-block">
+            <span class="sg-label">Hover image cards</span>
+            <div class="sg-preview">
+              <div class="sg-img-grid">
+                <figure class="sg-img-card">
+                  <img src="assets/images/hero-clinic.svg" alt="Treatment suite interior" />
+                  <span class="sg-img-tag">New</span>
+                  <figcaption class="sg-img-overlay">
+                    <span>Interior</span>
+                    <strong>Suite 02 &mdash; lounge</strong>
+                  </figcaption>
+                </figure>
+                <figure class="sg-img-card">
+                  <img src="assets/images/hero-home.svg" alt="Reception area visual" />
+                  <span class="sg-img-tag">Featured</span>
+                  <figcaption class="sg-img-overlay">
+                    <span>Arrival</span>
+                    <strong>Reception lounge</strong>
+                  </figcaption>
+                </figure>
+                <figure class="sg-img-card">
+                  <img src="assets/images/doctor-placeholder.svg" alt="Doctor portrait placeholder" />
+                  <span class="sg-img-tag">Team</span>
+                  <figcaption class="sg-img-overlay">
+                    <span>Clinical</span>
+                    <strong>Dr. M. Chen</strong>
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+            <pre class="sg-code">&lt;figure class="sg-img-card"&gt;
+  &lt;img src="..." alt="..." /&gt;
+  &lt;span class="sg-img-tag"&gt;New&lt;/span&gt;
+  &lt;figcaption class="sg-img-overlay"&gt;
+    &lt;span&gt;Interior&lt;/span&gt;
+    &lt;strong&gt;Suite 02&lt;/strong&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;</pre>
+          </div>
+
+          <div class="sg-block">
+            <span class="sg-label">Mosaic gallery</span>
+            <div class="sg-preview">
+              <div class="sg-mosaic">
+                <div class="sg-mosaic-tile sg-mosaic-a is-wide is-tall" data-label="Suite"></div>
+                <div class="sg-mosaic-tile sg-mosaic-b" data-label="Smile"></div>
+                <div class="sg-mosaic-tile sg-mosaic-c" data-label="Scan"></div>
+                <div class="sg-mosaic-tile sg-mosaic-d is-wide" data-label="Reception"></div>
+                <div class="sg-mosaic-tile sg-mosaic-e" data-label="Detail"></div>
+                <div class="sg-mosaic-tile sg-mosaic-f" data-label="Team"></div>
+              </div>
+            </div>
+            <pre class="sg-code">&lt;div class="sg-mosaic"&gt;
+  &lt;div class="sg-mosaic-tile sg-mosaic-a is-wide is-tall" data-label="Suite"&gt;&lt;/div&gt;
+  &lt;div class="sg-mosaic-tile sg-mosaic-b" data-label="Smile"&gt;&lt;/div&gt;
+  ...
+&lt;/div&gt;</pre>
+          </div>
+
+          <div class="sg-block">
+            <span class="sg-label">Before / after slider</span>
+            <div class="sg-preview">
+              <div class="sg-ba" data-ba>
+                <div class="sg-ba-img sg-ba-before"></div>
+                <div class="sg-ba-img sg-ba-after"></div>
+                <span class="sg-ba-label is-before">Before</span>
+                <span class="sg-ba-label is-after">After</span>
+                <div class="sg-ba-handle"></div>
+                <input class="sg-ba-input" type="range" min="0" max="100" value="50" aria-label="Compare before and after" />
+              </div>
+            </div>
+            <pre class="sg-code">&lt;div class="sg-ba" data-ba&gt;
+  &lt;div class="sg-ba-img sg-ba-before"&gt;&lt;/div&gt;
+  &lt;div class="sg-ba-img sg-ba-after"&gt;&lt;/div&gt;
+  &lt;span class="sg-ba-label is-before"&gt;Before&lt;/span&gt;
+  &lt;span class="sg-ba-label is-after"&gt;After&lt;/span&gt;
+  &lt;div class="sg-ba-handle"&gt;&lt;/div&gt;
+  &lt;input class="sg-ba-input" type="range" min="0" max="100" value="50" /&gt;
+&lt;/div&gt;</pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <section class="section" id="funnel">
+        <div class="section-shell">
+          <div class="section-head">
+            <div class="section-copy">
+              <span class="section-label">Sales funnel</span>
+              <h2>Stage-based conversion diagram.</h2>
+              <p class="section-lead">Visualize the journey from visitor to booked patient with percentage drop-offs.</p>
+            </div>
+          </div>
+          <div class="sg-block">
+            <span class="sg-label">Funnel diagram</span>
+            <div class="sg-preview">
+              <div class="sg-funnel">
+                <div class="sg-funnel-step">
+                  <div class="sg-funnel-num">1</div>
+                  <div>
+                    <h4>Awareness</h4>
+                    <p>Site visits, blog reads, social impressions</p>
+                  </div>
+                  <span class="sg-funnel-pct">100%</span>
+                </div>
+                <div class="sg-funnel-step">
+                  <div class="sg-funnel-num">2</div>
+                  <div>
+                    <h4>Interest</h4>
+                    <p>Service page views and gallery interactions</p>
+                  </div>
+                  <span class="sg-funnel-pct">62%</span>
+                </div>
+                <div class="sg-funnel-step">
+                  <div class="sg-funnel-num">3</div>
+                  <div>
+                    <h4>Consideration</h4>
+                    <p>Contact form started or pricing reviewed</p>
+                  </div>
+                  <span class="sg-funnel-pct">28%</span>
+                </div>
+                <div class="sg-funnel-step">
+                  <div class="sg-funnel-num">4</div>
+                  <div>
+                    <h4>Intent</h4>
+                    <p>Consultation request submitted</p>
+                  </div>
+                  <span class="sg-funnel-pct">11%</span>
+                </div>
+                <div class="sg-funnel-step">
+                  <div class="sg-funnel-num">5</div>
+                  <div>
+                    <h4>Booked</h4>
+                    <p>Appointment confirmed</p>
+                  </div>
+                  <span class="sg-funnel-pct">6%</span>
+                </div>
+              </div>
+            </div>
+            <pre class="sg-code">&lt;div class="sg-funnel"&gt;
+  &lt;div class="sg-funnel-step"&gt;
+    &lt;div class="sg-funnel-num"&gt;1&lt;/div&gt;
+    &lt;div&gt;&lt;h4&gt;Awareness&lt;/h4&gt;&lt;p&gt;Site visits&lt;/p&gt;&lt;/div&gt;
+    &lt;span class="sg-funnel-pct"&gt;100%&lt;/span&gt;
+  &lt;/div&gt;
+  ...
+&lt;/div&gt;</pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <section class="section" id="promotions">
+        <div class="section-shell">
+          <div class="section-head">
+            <div class="section-copy">
+              <span class="section-label">Promotions</span>
+              <h2>Big sale banners and offer cards.</h2>
+              <p class="section-lead">Use sparingly for time-bound campaigns and seasonal offers.</p>
+            </div>
+          </div>
+
+          <div class="sg-block">
+            <span class="sg-label">Mega sale banner</span>
+            <div class="sg-preview">
+              <div class="sg-promo-banner">
+                <div>
+                  <span class="sg-promo-eyebrow">Limited time</span>
+                  <h3 class="sg-promo-title">Spring smile <em>refresh sale</em></h3>
+                  <p class="sg-promo-sub">Whitening, polish, and a digital scan bundle &mdash; available through May.</p>
+                  <a href="#" class="sg-promo-cta">Claim offer &rarr;</a>
+                </div>
+                <div class="sg-promo-meta">
+                  <span class="sg-promo-discount">35%</span>
+                  <small>Off bundles</small>
+                </div>
+              </div>
+            </div>
+            <pre class="sg-code">&lt;div class="sg-promo-banner"&gt;
+  &lt;div&gt;
+    &lt;span class="sg-promo-eyebrow"&gt;Limited time&lt;/span&gt;
+    &lt;h3 class="sg-promo-title"&gt;Spring smile &lt;em&gt;refresh sale&lt;/em&gt;&lt;/h3&gt;
+    &lt;p class="sg-promo-sub"&gt;...&lt;/p&gt;
+    &lt;a class="sg-promo-cta" href="#"&gt;Claim offer&lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div class="sg-promo-meta"&gt;
+    &lt;span class="sg-promo-discount"&gt;35%&lt;/span&gt;
+    &lt;small&gt;Off bundles&lt;/small&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+          </div>
+
+          <div class="sg-block">
+            <span class="sg-label">Offer cards with ribbon</span>
+            <div class="sg-preview">
+              <div class="sg-offers">
+                <article class="sg-offer-card">
+                  <span class="sg-offer-ribbon">Save 30%</span>
+                  <h4>Whitening bundle</h4>
+                  <div class="sg-offer-price">$199 <small>$285</small></div>
+                  <ul class="sg-offer-list">
+                    <li>In-clinic session</li>
+                    <li>Take-home trays</li>
+                    <li>Follow-up review</li>
+                  </ul>
+                </article>
+                <article class="sg-offer-card is-dark">
+                  <span class="sg-offer-ribbon">Best value</span>
+                  <h4>Family checkup pack</h4>
+                  <div class="sg-offer-price">$249 <small>$340</small></div>
+                  <ul class="sg-offer-list">
+                    <li>Up to 4 members</li>
+                    <li>Digital x-rays included</li>
+                    <li>Personalized plan</li>
+                  </ul>
+                </article>
+                <article class="sg-offer-card">
+                  <span class="sg-offer-ribbon">New</span>
+                  <h4>Smile design preview</h4>
+                  <div class="sg-offer-price">$89 <small>$150</small></div>
+                  <ul class="sg-offer-list">
+                    <li>Digital scan</li>
+                    <li>3D smile preview</li>
+                    <li>Written plan</li>
+                  </ul>
+                </article>
+              </div>
+            </div>
+            <pre class="sg-code">&lt;article class="sg-offer-card"&gt;
+  &lt;span class="sg-offer-ribbon"&gt;Save 30%&lt;/span&gt;
+  &lt;h4&gt;Whitening bundle&lt;/h4&gt;
+  &lt;div class="sg-offer-price"&gt;$199 &lt;small&gt;$285&lt;/small&gt;&lt;/div&gt;
+  &lt;ul class="sg-offer-list"&gt;&lt;li&gt;In-clinic session&lt;/li&gt;&lt;/ul&gt;
+&lt;/article&gt;</pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <section class="section" id="pricing">
+        <div class="section-shell">
+          <div class="section-head">
+            <div class="section-copy">
+              <span class="section-label">Pricing</span>
+              <h2>Tier cards with featured highlight.</h2>
+            </div>
+          </div>
+          <div class="sg-block">
+            <span class="sg-label">Three-tier pricing</span>
+            <div class="sg-preview">
+              <div class="sg-pricing">
+                <article class="sg-tier">
+                  <h4>Essential</h4>
+                  <div class="sg-tier-price">$79<span> / visit</span></div>
+                  <ul>
+                    <li>Exam &amp; cleaning</li>
+                    <li>Oral health review</li>
+                    <li>Email follow-up</li>
+                  </ul>
+                </article>
+                <article class="sg-tier is-featured">
+                  <h4>Recommended</h4>
+                  <div class="sg-tier-price">$149<span> / visit</span></div>
+                  <ul>
+                    <li>Everything in Essential</li>
+                    <li>Digital scan included</li>
+                    <li>Priority booking</li>
+                  </ul>
+                </article>
+                <article class="sg-tier">
+                  <h4>Premium</h4>
+                  <div class="sg-tier-price">$249<span> / visit</span></div>
+                  <ul>
+                    <li>Everything in Recommended</li>
+                    <li>Smile design preview</li>
+                    <li>Whitening session</li>
+                  </ul>
+                </article>
+              </div>
+            </div>
+            <pre class="sg-code">&lt;article class="sg-tier is-featured"&gt;
+  &lt;h4&gt;Recommended&lt;/h4&gt;
+  &lt;div class="sg-tier-price"&gt;$149&lt;span&gt; / visit&lt;/span&gt;&lt;/div&gt;
+  &lt;ul&gt;&lt;li&gt;...&lt;/li&gt;&lt;/ul&gt;
+&lt;/article&gt;</pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <section class="section" id="badges">
+        <div class="section-shell">
+          <div class="section-head">
+            <div class="section-copy">
+              <span class="section-label">Badges</span>
+              <h2>Status, sale, and informational pills.</h2>
+            </div>
+          </div>
+          <div class="sg-block">
+            <span class="sg-label">Badge variants</span>
+            <div class="sg-preview">
+              <div class="sg-badges">
+                <span class="sg-badge sg-badge-sale">Sale</span>
+                <span class="sg-badge sg-badge-new">New</span>
+                <span class="sg-badge sg-badge-hot">Hot</span>
+                <span class="sg-badge sg-badge-soft">Featured</span>
+                <span class="sg-badge sg-badge-outline"><span class="sg-badge-dot"></span>Live</span>
+              </div>
+            </div>
+            <pre class="sg-code">&lt;span class="sg-badge sg-badge-sale"&gt;Sale&lt;/span&gt;
+&lt;span class="sg-badge sg-badge-new"&gt;New&lt;/span&gt;
+&lt;span class="sg-badge sg-badge-hot"&gt;Hot&lt;/span&gt;
+&lt;span class="sg-badge sg-badge-outline"&gt;&lt;span class="sg-badge-dot"&gt;&lt;/span&gt;Live&lt;/span&gt;</pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <section class="section" id="countdown">
+        <div class="section-shell">
+          <div class="section-head">
+            <div class="section-copy">
+              <span class="section-label">Countdown</span>
+              <h2>Campaign timer block.</h2>
+              <p class="section-lead">Pair with a promo banner to communicate urgency. Numbers can be wired to a JS countdown.</p>
+            </div>
+          </div>
+          <div class="sg-block">
+            <span class="sg-label">Countdown timer</span>
+            <div class="sg-preview">
+              <div class="sg-countdown" data-countdown="2026-12-31T23:59:59">
+                <div class="sg-count-cell"><span class="sg-count-num" data-d>00</span><span class="sg-count-label">Days</span></div>
+                <div class="sg-count-cell"><span class="sg-count-num" data-h>00</span><span class="sg-count-label">Hours</span></div>
+                <div class="sg-count-cell"><span class="sg-count-num" data-m>00</span><span class="sg-count-label">Minutes</span></div>
+                <div class="sg-count-cell"><span class="sg-count-num" data-s>00</span><span class="sg-count-label">Seconds</span></div>
+              </div>
+            </div>
+            <pre class="sg-code">&lt;div class="sg-countdown" data-countdown="2026-12-31T23:59:59"&gt;
+  &lt;div class="sg-count-cell"&gt;&lt;span class="sg-count-num" data-d&gt;00&lt;/span&gt;&lt;span class="sg-count-label"&gt;Days&lt;/span&gt;&lt;/div&gt;
+  ...
+&lt;/div&gt;</pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <section class="section" id="lead">
+        <div class="section-shell">
+          <div class="section-head">
+            <div class="section-copy">
+              <span class="section-label">Lead capture</span>
+              <h2>Inline subscribe strip.</h2>
+            </div>
+          </div>
+          <div class="sg-block">
+            <span class="sg-label">Newsletter strip</span>
+            <div class="sg-preview">
+              <aside class="sg-lead">
+                <div>
+                  <h4>Get smile-care tips monthly.</h4>
+                  <p>Short, practical articles. No spam. Unsubscribe any time.</p>
+                </div>
+                <form class="sg-lead-form" onsubmit="event.preventDefault();">
+                  <input type="email" placeholder="you@example.com" aria-label="Email address" />
+                  <button type="submit">Subscribe</button>
+                </form>
+              </aside>
+            </div>
+            <pre class="sg-code">&lt;aside class="sg-lead"&gt;
+  &lt;div&gt;&lt;h4&gt;Get smile-care tips&lt;/h4&gt;&lt;p&gt;Short, practical articles&lt;/p&gt;&lt;/div&gt;
+  &lt;form class="sg-lead-form"&gt;
+    &lt;input type="email" placeholder="you@example.com" /&gt;
+    &lt;button type="submit"&gt;Subscribe&lt;/button&gt;
+  &lt;/form&gt;
+&lt;/aside&gt;</pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <section class="section" id="footer">
+        <div class="section-shell">
+          <div class="section-head">
+            <div class="section-copy">
+              <span class="section-label">12 &middot; Footer</span>
+              <h2>Site footer structure.</h2>
+              <p class="section-lead">Drop this block at the bottom of every page. Update the year via the <code>data-current-year</code> hook handled in <code>script.js</code>.</p>
+            </div>
+          </div>
+
+          <div class="sg-block">
+            <pre class="sg-code">&lt;footer class="footer"&gt;
+  &lt;div class="footer-shell"&gt;
+    &lt;aside class="footer-cta" aria-label="Book a visit"&gt; ... &lt;/aside&gt;
+    &lt;div class="footer-grid"&gt;
+      &lt;div class="footer-brand"&gt;
+        &lt;a class="footer-brand-link" href="index.html"&gt;
+          &lt;span class="brand-mark" aria-hidden="true"&gt;P&lt;/span&gt;
+          &lt;strong&gt;Poly Dental Clinic&lt;/strong&gt;
+        &lt;/a&gt;
+        &lt;span&gt;Tagline.&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class="footer-col"&gt;
+        &lt;span class="footer-heading"&gt;Navigate&lt;/span&gt;
+        &lt;div class="footer-links"&gt;
+          &lt;a href="index.html"&gt;Home&lt;/a&gt;
+          ...
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="footer-col"&gt;
+        &lt;span class="footer-heading"&gt;Contact&lt;/span&gt;
+        &lt;div class="footer-links"&gt;
+          &lt;a href="tel:..."&gt;Phone&lt;/a&gt;
+          &lt;a href="mailto:..."&gt;Email&lt;/a&gt;
+          &lt;span&gt;Address&lt;/span&gt;
+          &lt;span&gt;Hours&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="footer-bottom"&gt;
+      &lt;p class="footer-note"&gt;&amp;copy; &lt;span data-current-year&gt;&lt;/span&gt; Poly Dental Clinic.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/footer&gt;</pre>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-shell">
+        <aside class="footer-cta" aria-label="Book a visit">
+          <div class="footer-cta-copy">
+            <span class="section-label">Ready when you are</span>
+            <h3>Book your visit with Poly Dental Clinic.</h3>
+            <p>Same-week appointments, transparent treatment plans, and a calm clinic experience.</p>
+          </div>
+          <div class="footer-cta-actions">
+            <a class="button" href="contact.html">Book a visit</a>
+            <a class="button-secondary" href="tel:+15550142211">Call +1 (555) 014-2211</a>
+          </div>
+        </aside>
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a class="footer-brand-link" href="index.html" aria-label="Poly Dental Clinic home">
+              <span class="brand-mark" aria-hidden="true">P</span>
+              <strong>Poly Dental Clinic</strong>
+            </a>
+            <span>Advanced dental care with a luxury patient experience.</span>
+          </div>
+          <div class="footer-col">
+            <span class="footer-heading">Navigate</span>
+            <div class="footer-links">
+              <a href="index.html">Home</a>
+              <a href="about.html">About</a>
+              <a href="services.html">Services</a>
+              <a href="gallery.html">Gallery</a>
+              <a href="blog.html">Blogs</a>
+              <a href="contact.html">Contact</a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <span class="footer-heading">Contact</span>
+            <div class="footer-links">
+              <a href="tel:+15550142211">+1 (555) 014-2211</a>
+              <a href="mailto:hello@polydentalclinic.com">hello@polydentalclinic.com</a>
+              <span>125 Gold Crescent<br />Brookline, MA 02446</span>
+              <span>Mon&ndash;Fri &middot; 8:00&ndash;18:00</span>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p class="footer-note">&copy; <span data-current-year></span> Poly Dental Clinic. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+    <script>
+      // Before / after slider
+      document.querySelectorAll('[data-ba]').forEach((wrap) => {
+        const input = wrap.querySelector('.sg-ba-input');
+        if (!input) return;
+        const apply = () => wrap.style.setProperty('--ba', input.value + '%');
+        input.addEventListener('input', apply);
+        apply();
+      });
+      // Countdown
+      document.querySelectorAll('[data-countdown]').forEach((el) => {
+        const target = new Date(el.dataset.countdown).getTime();
+        if (isNaN(target)) return;
+        const d = el.querySelector('[data-d]');
+        const h = el.querySelector('[data-h]');
+        const m = el.querySelector('[data-m]');
+        const s = el.querySelector('[data-s]');
+        const pad = (n) => String(Math.max(0, n)).padStart(2, '0');
+        const tick = () => {
+          const diff = target - Date.now();
+          if (diff <= 0) { d.textContent = h.textContent = m.textContent = s.textContent = '00'; return; }
+          const days = Math.floor(diff / 86400000);
+          const hrs  = Math.floor((diff % 86400000) / 3600000);
+          const mins = Math.floor((diff % 3600000) / 60000);
+          const secs = Math.floor((diff % 60000) / 1000);
+          d.textContent = pad(days);
+          h.textContent = pad(hrs);
+          m.textContent = pad(mins);
+          s.textContent = pad(secs);
+        };
+        tick();
+        setInterval(tick, 1000);
+      });
+    </script>
+  </body>
+</html>

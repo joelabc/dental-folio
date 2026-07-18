@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Placeholder reception area illustration">
+  <rect width="800" height="600" rx="36" fill="#f6efe2"/>
+  <rect x="110" y="130" width="580" height="340" rx="28" fill="#fffdf8" stroke="#d7c07d" stroke-width="6"/>
+  <rect x="150" y="180" width="220" height="150" rx="20" fill="#e8d7a2"/>
+  <rect x="390" y="180" width="240" height="120" rx="20" fill="#111111"/>
+  <rect x="410" y="205" width="110" height="16" rx="8" fill="#fbfaf7"/>
+  <rect x="410" y="235" width="80" height="16" rx="8" fill="#c9a227"/>
+  <rect x="200" y="360" width="400" height="70" rx="20" fill="#f2e8cb"/>
+  <circle cx="240" cy="395" r="24" fill="#c9a227"/>
+  <rect x="280" y="380" width="120" height="14" rx="7" fill="#111111"/>
+  <rect x="280" y="410" width="90" height="12" rx="6" fill="#7a735f"/>
+</svg>

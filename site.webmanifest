@@ -1,0 +1,17 @@
+
+{  "name": "Poly Dental Clinic",
+  "short_name": "Poly Dental",
+  "description": "Modern dental clinic website with services, gallery, and contact information.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fbfaf7",
+  "theme_color": "#fbfaf7",
+  "icons": [
+    {
+      "src": "assets/images/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
