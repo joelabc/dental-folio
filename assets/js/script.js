@@ -114,6 +114,70 @@ backToTopButton.setAttribute("aria-label", "Back to top");
 backToTopButton.setAttribute("title", "Back to top");
 backToTopButton.innerHTML = "<span aria-hidden=\"true\">&#8593;</span>";
 
+const galleryViewer = document.querySelector("[data-gallery-viewer]");
+const galleryViewerImage = galleryViewer?.querySelector("[data-gallery-viewer-image]");
+const galleryViewerCaption = galleryViewer?.querySelector("[data-gallery-viewer-caption]");
+const galleryCloseButton = galleryViewer?.querySelector("[data-gallery-close]");
+const galleryPrevButton = galleryViewer?.querySelector("[data-gallery-prev]");
+const galleryNextButton = galleryViewer?.querySelector("[data-gallery-next]");
+const galleryItems = Array.from(document.querySelectorAll("[data-gallery-item]"));
+let galleryIndex = 0;
+
+const openGalleryViewer = (index) => {
+  if (!galleryViewer || !galleryViewerImage || !galleryViewerCaption) return;
+
+  galleryIndex = index;
+  const item = galleryItems[galleryIndex];
+  if (!item) return;
+
+  galleryViewerImage.src = item.dataset.src || "";
+  galleryViewerImage.alt = item.dataset.caption || "";
+  galleryViewerCaption.textContent = item.dataset.caption || "";
+  galleryViewer.classList.add("is-open");
+  galleryViewer.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+};
+
+const closeGalleryViewer = () => {
+  if (!galleryViewer) return;
+  galleryViewer.classList.remove("is-open");
+  galleryViewer.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = "";
+};
+
+const showGalleryItem = (direction) => {
+  if (!galleryItems.length) return;
+  const nextIndex = (galleryIndex + direction + galleryItems.length) % galleryItems.length;
+  openGalleryViewer(nextIndex);
+};
+
+galleryItems.forEach((item, index) => {
+  item.addEventListener("click", () => openGalleryViewer(index));
+});
+
+if (galleryCloseButton) {
+  galleryCloseButton.addEventListener("click", closeGalleryViewer);
+}
+if (galleryPrevButton) {
+  galleryPrevButton.addEventListener("click", () => showGalleryItem(-1));
+}
+if (galleryNextButton) {
+  galleryNextButton.addEventListener("click", () => showGalleryItem(1));
+}
+
+if (galleryViewer) {
+  galleryViewer.addEventListener("click", (event) => {
+    if (event.target === galleryViewer) closeGalleryViewer();
+  });
+}
+
+document.addEventListener("keydown", (event) => {
+  if (!galleryViewer?.classList.contains("is-open")) return;
+  if (event.key === "Escape") closeGalleryViewer();
+  if (event.key === "ArrowLeft") showGalleryItem(-1);
+  if (event.key === "ArrowRight") showGalleryItem(1);
+});
+
 const updateBackToTopVisibility = () => {
   const shouldShow = window.scrollY > 200;
   backToTopButton.classList.toggle("is-visible", shouldShow);
@@ -161,16 +225,19 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
     update();
     if (userInitiated) restart();
   }
-  function next() { goTo(index + 1); }
-  function tick() {
-    next();
-    timer = setTimeout(tick, interval);
-  }
   function start() {
     stop();
-    timer = setTimeout(tick, interval);
+    timer = window.setInterval(() => {
+      index = (index + 1) % slides.length;
+      update();
+    }, interval);
   }
-  function stop() { if (timer) { clearTimeout(timer); timer = null; } }
+  function stop() {
+    if (timer) {
+      window.clearInterval(timer);
+      timer = null;
+    }
+  }
   function restart() { start(); }
 
   prevBtn && prevBtn.addEventListener("click", () => goTo(index - 1, true));

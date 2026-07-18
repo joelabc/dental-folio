@@ -98,7 +98,7 @@
           <div class="section-head reveal">
             <div class="section-copy">
               <span class="section-label">Featured</span>
-              <h2>Glimpses inside the clinic.</h2>
+              <h2>Glimpses of the clinic.</h2>
               <p class="section-lead">An auto-scrolling preview of the spaces and moments you'll experience.</p>
             </div>
           </div>
@@ -111,19 +111,19 @@
           >
             <div class="carousel-track" data-carousel-track>
               <figure class="carousel-slide">
-                <img src="assets/images/hero-home.svg" alt="Welcoming clinic reception" />
+                <img src="assets/images/f1.jpg" alt="Welcoming clinic reception" />
                 <figcaption>Reception lounge</figcaption>
               </figure>
               <figure class="carousel-slide">
-                <img src="assets/images/hero-clinic.svg" alt="Modern private treatment suite" />
+                <img src="assets/images/f2.jpg" alt="Modern private treatment suite" />
                 <figcaption>Private treatment suite</figcaption>
               </figure>
               <figure class="carousel-slide">
-                <img src="assets/images/doctor-placeholder.svg" alt="Specialist consultation moment" />
+                <img src="assets/images/f3.jpg" alt="Specialist consultation moment" />
                 <figcaption>Specialist consultation</figcaption>
               </figure>
               <figure class="carousel-slide">
-                <img src="assets/images/hero-home.svg" alt="Calm clinic atmosphere with gold accents" />
+                <img src="assets/images/f4.jpg" alt="Calm clinic atmosphere with gold accents" />
                 <figcaption>Signature details</figcaption>
               </figure>
             </div>
@@ -146,46 +146,100 @@
               </p>
             </div>
           </div>
-          <div class="gallery-grid">
-            <article class="gallery-card reveal">
-              <div class="gallery-visual" data-label="Reception"></div>
-              <div class="gallery-tag">Arrival experience</div>
-              <h3>Reception lounge</h3>
-              <p>Warm textures, premium finishes, and an uncluttered front-of-house layout.</p>
-            </article>
-            <article class="gallery-card reveal">
-              <div class="gallery-visual" data-label="Suite"></div>
-              <div class="gallery-tag">Treatment environment</div>
-              <h3>Private treatment suite</h3>
-              <p>Comfort-oriented rooms designed to support calm consultations and procedures.</p>
-            </article>
-            <article class="gallery-card reveal">
-              <div class="gallery-visual" data-label="Scan"></div>
-              <div class="gallery-tag">Digital workflow</div>
-              <h3>3D diagnostics</h3>
-              <p>Technology-led planning that improves accuracy and patient understanding.</p>
-            </article>
-            <article class="gallery-card reveal">
-              <div class="gallery-visual" data-label="Smile"></div>
-              <div class="gallery-tag">Smile design</div>
-              <h3>Cosmetic consultation</h3>
-              <p>Detailed shade, shape, and balance discussions for natural-looking outcomes.</p>
-            </article>
-            <article class="gallery-card reveal">
-              <div class="gallery-visual" data-label="Team"></div>
-              <div class="gallery-tag">People</div>
-              <h3>Clinical team</h3>
-              <p>Friendly specialists who combine technical rigor with clear communication.</p>
-            </article>
-            <article class="gallery-card reveal">
-              <div class="gallery-visual" data-label="Detail"></div>
-              <div class="gallery-tag">Brand atmosphere</div>
-              <h3>Signature details</h3>
-              <p>Black, white, and gold accents create a memorable and elevated brand identity.</p>
-            </article>
+          <div class="gallery-grid-simple" data-gallery-grid>
+            <button class="gallery-thumb reveal" type="button" data-gallery-item data-src="assets/images/hero-home.svg" data-caption="Reception lounge">
+              <img src="assets/images/hero-home.svg" alt="Reception lounge" />
+            </button>
+            <button class="gallery-thumb reveal" type="button" data-gallery-item data-src="assets/images/hero-clinic.svg" data-caption="Private treatment suite">
+              <img src="assets/images/hero-clinic.svg" alt="Private treatment suite" />
+            </button>
+            <button class="gallery-thumb reveal" type="button" data-gallery-item data-src="assets/images/doctor-placeholder.svg" data-caption="Specialist consultation">
+              <img src="assets/images/doctor-placeholder.svg" alt="Specialist consultation" />
+            </button>
+            <button class="gallery-thumb reveal" type="button" data-gallery-item data-src="assets/images/PD_Logo.svg" data-caption="Brand illustration">
+              <img src="assets/images/PD_Logo.svg" alt="Brand illustration" />
+            </button>
+            <button class="gallery-thumb reveal" type="button" data-gallery-item data-src="assets/images/hero-home.svg" data-caption="Warm interior details">
+              <img src="assets/images/hero-home.svg" alt="Warm interior details" />
+            </button>
+            <button class="gallery-thumb reveal" type="button" data-gallery-item data-src="assets/images/hero-clinic.svg" data-caption="Modern clinical environment">
+              <img src="assets/images/hero-clinic.svg" alt="Modern clinical environment" />
+            </button>
           </div>
+
+          <div class="gallery-viewer" data-gallery-viewer aria-hidden="true">
+            <div class="gallery-viewer-panel">
+              <button class="gallery-viewer-close" type="button" data-gallery-close aria-label="Close image viewer">×</button>
+              <button class="gallery-viewer-nav gallery-viewer-prev" type="button" data-gallery-prev aria-label="Previous image">←</button>
+              <img src="" alt="" data-gallery-viewer-image />
+              <button class="gallery-viewer-nav gallery-viewer-next" type="button" data-gallery-next aria-label="Next image">→</button>
+              <div class="gallery-viewer-caption" data-gallery-viewer-caption></div>
+            </div>
+          </div>
+          <div class="section">
+            <span class="sg-label">Doctor cards</span>
+            <div class="doctor-grid">
+              <article class="doctor-card" style="max-width:18rem;">
+                <img src="assets/images/doctor-placeholder.svg" alt="Doctor profile placeholder" />
+                <div class="doctor-copy">
+                  <span class="doctor-role">Lead cosmetic dentist</span>
+                  <h3>Dr Amelia Hart</h3>
+                  <p>Focuses on smile design, veneers, and conservative aesthetic treatment planning.</p>
+                </div>
+              </article>
+              <article class="doctor-card" style="max-width:18rem;">
+                <img src="assets/images/doctor-placeholder.svg" alt="Doctor profile placeholder" />
+                <div class="doctor-copy">
+                  <span class="doctor-role">Lead cosmetic dentist</span>
+                  <h3>Dr Amelia Hart</h3>
+                  <p>Focuses on smile design, veneers, and conservative aesthetic treatment planning.</p>
+                </div>
+              </article>
+              <article class="doctor-card" style="max-width:18rem;">
+                <img src="assets/images/doctor-placeholder.svg" alt="Doctor profile placeholder" />
+                <div class="doctor-copy">
+                  <span class="doctor-role">Lead cosmetic dentist</span>
+                  <h3>Dr Amelia Hart</h3>
+                  <p>Focuses on smile design, veneers, and conservative aesthetic treatment planning.</p>
+                </div>
+              </article>
+              <article class="doctor-card" style="max-width:18rem;">
+                <img src="assets/images/doctor-placeholder.svg" alt="Doctor profile placeholder" />
+                <div class="doctor-copy">
+                  <span class="doctor-role">Lead cosmetic dentist</span>
+                  <h3>Dr Amelia Hart</h3>
+                  <p>Focuses on smile design, veneers, and conservative aesthetic treatment planning.</p>
+                </div>
+              </article>
+              <article class="doctor-card" style="max-width:18rem;">
+                <img src="assets/images/doctor-placeholder.svg" alt="Doctor profile placeholder" />
+                <div class="doctor-copy">
+                  <span class="doctor-role">Lead cosmetic dentist</span>
+                  <h3>Dr Amelia Hart</h3>
+                  <p>Focuses on smile design, veneers, and conservative aesthetic treatment planning.</p>
+                </div>
+              </article>
+              <article class="doctor-card" style="max-width:18rem;">
+                <img src="assets/images/doctor-placeholder.svg" alt="Doctor profile placeholder" />
+                <div class="doctor-copy">
+                  <span class="doctor-role">Lead cosmetic dentist</span>
+                  <h3>Dr Amelia Hart</h3>
+                  <p>Focuses on smile design, veneers, and conservative aesthetic treatment planning.</p>
+                </div>
+              </article>
+              <article class="doctor-card" style="max-width:18rem;">
+                <img src="assets/images/doctor-placeholder.svg" alt="Doctor profile placeholder" />
+                <div class="doctor-copy">
+                  <span class="doctor-role">Lead cosmetic dentist</span>
+                  <h3>Dr Amelia Hart</h3>
+                  <p>Focuses on smile design, veneers, and conservative aesthetic treatment planning.</p>
+                </div>
+              </article>
+            </div>
         </div>
+        
       </section>
+      
     </main>
 
     <footer class="footer">
@@ -207,7 +261,7 @@
               <img class="brand-mark" src="assets/images/PD_LogoMark.svg" alt="Poly Dental Clinic logo" />
               <strong>Poly Dental Clinic</strong>
             </a>
-            <span>Advanced dental care with a luxury patient experience.</span>
+            <span>Keeping your smile since 1994</span>
           </div>
           <div class="footer-col">
             <span class="footer-heading">Navigate</span>
@@ -231,6 +285,7 @@
             </div>
           </div>
         </div>
+        
         <div class="footer-bottom">
           <p class="footer-note">&copy; <span data-current-year></span> Poly Dental Clinic. All rights reserved.</p>
         </div>
