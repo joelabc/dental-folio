@@ -129,59 +129,6 @@ window.addEventListener("scroll", updateBackToTopVisibility, { passive: true });
 updateBackToTopVisibility();
 
 
-const galleryItems = Array.from(document.querySelectorAll("[data-gallery-item]"));
-const galleryModal = document.querySelector("[data-gallery-modal]");
-const galleryImage = galleryModal?.querySelector("[data-gallery-image]");
-const galleryTitle = galleryModal?.querySelector("[data-gallery-title]");
-const galleryCaption = galleryModal?.querySelector("[data-gallery-caption]");
-let galleryIndex = 0;
-
-if (galleryItems.length && galleryModal && galleryImage && galleryTitle && galleryCaption) {
-  const openGallery = (index) => {
-    galleryIndex = (index + galleryItems.length) % galleryItems.length;
-    const item = galleryItems[galleryIndex];
-    if (!item) return;
-
-    galleryImage.src = item.dataset.src || "";
-    galleryImage.alt = item.dataset.alt || "";
-    galleryTitle.textContent = item.dataset.title || "";
-    galleryCaption.textContent = item.dataset.caption || "";
-    galleryModal.hidden = false;
-    document.body.classList.add("is-modal-open");
-  };
-
-  const closeGallery = () => {
-    galleryModal.hidden = true;
-    document.body.classList.remove("is-modal-open");
-  };
-
-  const showNext = () => openGallery(galleryIndex + 1);
-  const showPrev = () => openGallery(galleryIndex - 1);
-
-  galleryItems.forEach((item, index) => {
-    item.addEventListener("click", () => openGallery(index));
-  });
-
-  galleryModal.querySelectorAll("[data-gallery-close]").forEach((button) => {
-    button.addEventListener("click", closeGallery);
-  });
-
-  galleryModal.querySelector("[data-gallery-prev]")?.addEventListener("click", showPrev);
-  galleryModal.querySelector("[data-gallery-next]")?.addEventListener("click", showNext);
-
-  document.addEventListener("keydown", (event) => {
-    if (galleryModal.hidden) return;
-
-    if (event.key === "Escape") {
-      closeGallery();
-    } else if (event.key === "ArrowRight") {
-      showNext();
-    } else if (event.key === "ArrowLeft") {
-      showPrev();
-    }
-  });
-}
-
 // ---- Image carousel (auto-scroll) ----
 document.querySelectorAll("[data-carousel]").forEach((carousel) => {
   const track = carousel.querySelector("[data-carousel-track]");

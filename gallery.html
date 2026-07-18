@@ -66,66 +66,126 @@
     </header>
 
     <main id="main">
+      <!-- <section class="page-intro">
+        <div class="section-shell page-intro-grid">
+          <div class="page-intro-copy reveal">
+            <span class="eyebrow">Clinic gallery</span>
+            <h1>A polished environment built for confidence and comfort.</h1>
+            <p>
+              This gallery showcases the clinic atmosphere, digital workflow moments, and smile
+              design inspiration clients can expect from Poly Dental Clinic.
+            </p>
+          </div>
+          <div class="page-intro-panel reveal">
+            <div class="page-intro-details">
+              <article class="intro-detail-card">
+                <span class="section-label">Interiors</span>
+                <h3>Soft lighting and premium restraint</h3>
+                <p>Calm surfaces, balanced tones, and subtle gold detailing shape the clinic atmosphere.</p>
+              </article>
+              <article class="intro-detail-card intro-detail-accent">
+                <span class="section-label">Presentation</span>
+                <h3>Visual trust from the first glance</h3>
+                <p>Each space is designed to communicate precision, calmness, and premium care.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section> -->
+
       <section class="section">
         <div class="section-shell">
           <div class="section-head reveal">
             <div class="section-copy">
-              <span class="section-label">Gallery</span>
-              <h2>Simple image gallery.</h2>
-              <p class="section-lead">
-                Tap any image to open a quick slideshow. The experience stays clean and easy to browse.
-              </p>
+              <span class="section-label">Featured</span>
+              <h2>Glimpses inside the clinic.</h2>
+              <p class="section-lead">An auto-scrolling preview of the spaces and moments you'll experience.</p>
             </div>
           </div>
-
-          <div class="gallery-grid reveal" data-gallery-grid>
-            <button class="gallery-card gallery-card--image" type="button" data-gallery-item data-src="assets/images/hero-home.svg" data-alt="Welcoming clinic reception" data-title="Reception lounge" data-caption="Warm arrival space with a calm first impression.">
-              <img src="assets/images/hero-home.svg" alt="Welcoming clinic reception" />
-              <div class="gallery-card__body">
-                <span class="gallery-tag">Arrival</span>
-                <h3>Reception lounge</h3>
-              </div>
-            </button>
-            <button class="gallery-card gallery-card--image" type="button" data-gallery-item data-src="assets/images/hero-clinic.svg" data-alt="Modern private treatment suite" data-title="Private treatment suite" data-caption="Comfort-focused treatment space designed for calm consultations.">
-              <img src="assets/images/hero-clinic.svg" alt="Modern private treatment suite" />
-              <div class="gallery-card__body">
-                <span class="gallery-tag">Treatment</span>
-                <h3>Private suite</h3>
-              </div>
-            </button>
-            <button class="gallery-card gallery-card--image" type="button" data-gallery-item data-src="assets/images/doctor-placeholder.svg" data-alt="Specialist consultation moment" data-title="Clinical consultation" data-caption="A clear, reassuring consultation experience for every patient.">
-              <img src="assets/images/doctor-placeholder.svg" alt="Specialist consultation moment" />
-              <div class="gallery-card__body">
-                <span class="gallery-tag">Consultation</span>
-                <h3>Clinical conversation</h3>
-              </div>
-            </button>
-            <button class="gallery-card gallery-card--image" type="button" data-gallery-item data-src="assets/images/PD_Logo.svg" data-alt="Brand illustration" data-title="Signature identity" data-caption="A refined visual identity carried through the clinic experience.">
-              <img src="assets/images/PD_Logo.svg" alt="Brand illustration" />
-              <div class="gallery-card__body">
-                <span class="gallery-tag">Brand</span>
-                <h3>Signature identity</h3>
-              </div>
-            </button>
+          <div
+            class="carousel reveal"
+            data-carousel
+            data-carousel-interval="7000"
+            aria-roledescription="carousel"
+            aria-label="Clinic image carousel"
+          >
+            <div class="carousel-track" data-carousel-track>
+              <figure class="carousel-slide">
+                <img src="assets/images/hero-home.svg" alt="Welcoming clinic reception" />
+                <figcaption>Reception lounge</figcaption>
+              </figure>
+              <figure class="carousel-slide">
+                <img src="assets/images/hero-clinic.svg" alt="Modern private treatment suite" />
+                <figcaption>Private treatment suite</figcaption>
+              </figure>
+              <figure class="carousel-slide">
+                <img src="assets/images/doctor-placeholder.svg" alt="Specialist consultation moment" />
+                <figcaption>Specialist consultation</figcaption>
+              </figure>
+              <figure class="carousel-slide">
+                <img src="assets/images/hero-home.svg" alt="Calm clinic atmosphere with gold accents" />
+                <figcaption>Signature details</figcaption>
+              </figure>
+            </div>
+            <button class="carousel-btn carousel-prev" type="button" aria-label="Previous slide" data-carousel-prev>&#10094;</button>
+            <button class="carousel-btn carousel-next" type="button" aria-label="Next slide" data-carousel-next>&#10095;</button>
+            <div class="carousel-dots" data-carousel-dots aria-label="Select slide"></div>
           </div>
         </div>
       </section>
 
-      <div class="gallery-modal" data-gallery-modal hidden>
-        <div class="gallery-modal__backdrop" data-gallery-close></div>
-        <div class="gallery-modal__dialog" role="dialog" aria-modal="true" aria-label="Gallery slideshow">
-          <button class="gallery-modal__close" type="button" data-gallery-close aria-label="Close gallery">×</button>
-          <button class="gallery-modal__nav gallery-modal__nav--prev" type="button" data-gallery-prev aria-label="Previous image">‹</button>
-          <div class="gallery-modal__media">
-            <img data-gallery-image alt="" />
-            <div class="gallery-modal__caption">
-              <strong data-gallery-title></strong>
-              <p data-gallery-caption></p>
+      <section class="section">
+        <div class="section-shell">
+          <div class="section-head reveal">
+            <div class="section-copy">
+              <span class="section-label">Visual highlights</span>
+              <h2>Moments that define the clinic experience.</h2>
+              <p class="section-lead">
+                Replace these placeholders with your real clinic photography to turn this page
+                into a strong visual trust signal for prospective patients.
+              </p>
             </div>
           </div>
-          <button class="gallery-modal__nav gallery-modal__nav--next" type="button" data-gallery-next aria-label="Next image">›</button>
+          <div class="gallery-grid">
+            <article class="gallery-card reveal">
+              <div class="gallery-visual" data-label="Reception"></div>
+              <div class="gallery-tag">Arrival experience</div>
+              <h3>Reception lounge</h3>
+              <p>Warm textures, premium finishes, and an uncluttered front-of-house layout.</p>
+            </article>
+            <article class="gallery-card reveal">
+              <div class="gallery-visual" data-label="Suite"></div>
+              <div class="gallery-tag">Treatment environment</div>
+              <h3>Private treatment suite</h3>
+              <p>Comfort-oriented rooms designed to support calm consultations and procedures.</p>
+            </article>
+            <article class="gallery-card reveal">
+              <div class="gallery-visual" data-label="Scan"></div>
+              <div class="gallery-tag">Digital workflow</div>
+              <h3>3D diagnostics</h3>
+              <p>Technology-led planning that improves accuracy and patient understanding.</p>
+            </article>
+            <article class="gallery-card reveal">
+              <div class="gallery-visual" data-label="Smile"></div>
+              <div class="gallery-tag">Smile design</div>
+              <h3>Cosmetic consultation</h3>
+              <p>Detailed shade, shape, and balance discussions for natural-looking outcomes.</p>
+            </article>
+            <article class="gallery-card reveal">
+              <div class="gallery-visual" data-label="Team"></div>
+              <div class="gallery-tag">People</div>
+              <h3>Clinical team</h3>
+              <p>Friendly specialists who combine technical rigor with clear communication.</p>
+            </article>
+            <article class="gallery-card reveal">
+              <div class="gallery-visual" data-label="Detail"></div>
+              <div class="gallery-tag">Brand atmosphere</div>
+              <h3>Signature details</h3>
+              <p>Black, white, and gold accents create a memorable and elevated brand identity.</p>
+            </article>
+          </div>
         </div>
-      </div>
+      </section>
     </main>
 
     <footer class="footer">
