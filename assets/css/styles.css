@@ -140,7 +140,7 @@ nav {
   display: grid;
   place-items: center;
   color: #fff;
-  background: linear-gradient(145deg, #262626, #111111);
+  /* background: linear-gradient(145deg, #262626, #111111); */
   border: 1px solid rgba(201, 162, 39, 0.35);
   box-shadow: 0 10px 24px rgba(17, 17, 17, 0.16);
   font-weight: 800;
@@ -323,19 +323,22 @@ nav {
   font-size: 1.03rem;
 }
 
+.page-intro-home 
+{
+  border: 1px solid rgba(201, 162, 39, 0.16);
+  box-shadow: 0 16px 40px rgba(17, 17, 17, 0.08);
+  border-radius: calc(var(--radius-lg) - 0.45rem);
+}
+
 .page-intro-panel {
   padding: 0.9rem;
-  background:
-    linear-gradient(180deg, rgba(17, 17, 17, 0.97), rgba(31, 31, 31, 0.95)),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.02));
-  border: 1px solid rgba(201, 162, 39, 0.26);
-  box-shadow: 0 24px 70px rgba(17, 17, 17, 0.16);
+  background: linear-gradient(180deg, rgba(45, 45, 45, 0.96), rgba(45, 45, 45, 0.96));
+  border: 1px solid rgba(201, 162, 39, 0.16);
+  box-shadow: 0 16px 40px rgba(17, 17, 17, 0.08);
 }
 
 .home-intro-panel {
-  background:
-    linear-gradient(180deg, rgba(17, 17, 17, 0.98), rgba(28, 28, 28, 0.95)),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.02));
+  background: linear-gradient(180deg, rgba(45, 45, 45, 0.96), rgba(45, 45, 45, 0.96));
 }
 
 .page-intro-panel::before {
@@ -343,10 +346,9 @@ nav {
   position: absolute;
   inset: 0.8rem;
   border-radius: calc(var(--radius-lg) - 0.45rem);
-  background:
-    radial-gradient(circle at top right, rgba(201, 162, 39, 0.2), transparent 30%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: linear-gradient(135deg, rgba(201, 162, 39, 0.08), rgba(255, 255, 255, 0));
+  border: 1px solid rgba(201, 162, 39, 0.08);
+  pointer-events: none;
 }
 
 .page-intro-details {
@@ -579,7 +581,6 @@ p {
 .hero-image-frame {
   overflow: hidden;
   border-radius: calc(var(--radius-lg) - 0.5rem);
-  border: 1px solid rgba(201, 162, 39, 0.2);
   background: linear-gradient(180deg, rgba(255, 253, 246, 0.92), rgba(251, 245, 229, 0.96));
 }
 
@@ -587,6 +588,7 @@ p {
   width: 100%;
   aspect-ratio: 1.06 / 1;
   object-fit: cover;
+  border: 0;
 }
 
 .hero-stat-row {
