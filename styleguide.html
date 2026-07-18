@@ -677,7 +677,7 @@
     <header class="site-header">
       <div class="nav-shell">
         <a class="brand" href="index.html" aria-label="Poly Dental Clinic home">
-          <span class="brand-mark">P</span>
+          <img class="brand-mark" src="assets/images/PD_LogoMark.svg" alt="Poly Dental Clinic logo" />
           <span class="brand-copy">
             <strong>Poly Dental Clinic</strong>
           </span>
@@ -716,7 +716,7 @@
               Copy any markup snippet below into a page that links
               <code>assets/css/styles.css</code> and includes the inline
               <code>document.documentElement.classList.add('js')</code> bootstrap.
-              All components inherit the shared brand identity automatically.
+              These examples use the same shared styles, spacing, and visual language as the live site.
             </p>
             <div class="sg-toc">
               <a href="#foundations">Foundations</a>
@@ -724,6 +724,7 @@
               <a href="#buttons">Buttons</a>
               <a href="#chips">Chips &amp; Eyebrows</a>
               <a href="#layout">Layout shells</a>
+              <a href="#hero">Hero sections</a>
               <a href="#page-intro">Page intro</a>
               <a href="#cards">Cards</a>
               <a href="#story">Story panel</a>
@@ -924,6 +925,144 @@
       &lt;/div&gt;
     &lt;/div&gt;
     &lt;!-- section content here --&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <section class="section" id="hero">
+        <div class="section-shell">
+          <div class="section-head">
+            <div class="section-copy">
+              <span class="section-label">06 &middot; Hero sections</span>
+              <h2>Hero variations built from the shared stylesheet.</h2>
+              <p class="section-lead">Use these patterns when a page needs a stronger first impression. Each example is designed to feel consistent with the current homepage and inner-page structure.</p>
+            </div>
+          </div>
+
+          <div class="sg-block">
+            <span class="sg-label">Variation one &mdash; editorial split hero</span>
+            <div class="sg-preview">
+              <section class="hero" style="padding:0;">
+                <div class="section-shell hero-grid">
+                  <div class="hero-copy">
+                    <span class="eyebrow">Patient-first dentistry</span>
+                    <h2>Modern care that feels calm from the first impression.</h2>
+                    <p>Pair a confident headline with a short supporting paragraph and a clear CTA stack.</p>
+                    <div class="inline-actions">
+                      <a class="button" href="#">Book a visit</a>
+                      <a class="button-secondary" href="#">Meet the team</a>
+                    </div>
+                    <div class="landing-points">
+                      <span>Digital diagnostics</span>
+                      <span>Comfort-led treatment</span>
+                      <span>Transparent planning</span>
+                    </div>
+                  </div>
+                  <div class="hero-card">
+                    <div class="hero-card-content">
+                      <div class="hero-image-frame">
+                        <img src="assets/images/hero-clinic.svg" alt="Modern treatment suite" />
+                      </div>
+                      <div class="hero-stat-row">
+                        <div class="hero-badge"><strong>98%</strong><br />patient satisfaction</div>
+                        <div class="hero-badge"><strong>Same-week</strong><br />availability</div>
+                        <div class="hero-badge"><strong>30+ yrs</strong><br />trusted care</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+            <pre class="sg-code">&lt;section class="hero"&gt;
+  &lt;div class="section-shell hero-grid"&gt;
+    &lt;div class="hero-copy"&gt;
+      &lt;span class="eyebrow"&gt;Patient-first dentistry&lt;/span&gt;
+      &lt;h2&gt;Modern care that feels calm from the first impression.&lt;/h2&gt;
+      &lt;p&gt;Pair a confident headline with a short supporting paragraph and a clear CTA stack.&lt;/p&gt;
+      &lt;div class="inline-actions"&gt;...&lt;/div&gt;
+      &lt;div class="landing-points"&gt;...&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="hero-card"&gt;...&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</pre>
+          </div>
+
+          <div class="sg-block">
+            <span class="sg-label">Variation two &mdash; image-led home-style hero</span>
+            <div class="sg-preview">
+              <section class="page-intro home-intro">
+                <div class="section-shell page-intro-grid">
+                  <div class="page-intro-copy">
+                    <span class="eyebrow">Designed around comfort</span>
+                    <h2>Use imagery and a softer frame to create a premium first impression.</h2>
+                    <p>Keep the copy concise, then let the visual anchor do the rest of the storytelling.</p>
+                    <div class="inline-actions">
+                      <a class="button" href="#">Discover the clinic</a>
+                      <a class="button-secondary" href="#">View services</a>
+                    </div>
+                  </div>
+                  <div class="page-intro-home">
+                    <div class="page-intro-details">
+                      <div class="hero-image-frame home-intro-image">
+                        <img src="assets/images/PD_Logo.svg" alt="Brand-led hero illustration" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+            <pre class="sg-code">&lt;section class="page-intro home-intro"&gt;
+  &lt;div class="section-shell page-intro-grid"&gt;
+    &lt;div class="page-intro-copy"&gt;...&lt;/div&gt;
+    &lt;div class="page-intro-home"&gt;
+      &lt;div class="page-intro-details"&gt;
+        &lt;div class="hero-image-frame home-intro-image"&gt;...&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</pre>
+          </div>
+
+          <div class="sg-block">
+            <span class="sg-label">Variation three &mdash; dark panel hero</span>
+            <div class="sg-preview is-dark">
+              <section class="page-intro" style="padding:0;">
+                <div class="section-shell page-intro-grid">
+                  <div class="page-intro-copy">
+                    <span class="eyebrow">A polished landing point</span>
+                    <h2>Use a dark, elevated panel when you want the hero to feel more editorial.</h2>
+                    <p>This version pairs the same content structure with a stronger contrast panel for supporting details.</p>
+                    <div class="inline-actions">
+                      <a class="button" href="#">Start your visit</a>
+                      <a class="button-secondary" href="#">Read more</a>
+                    </div>
+                  </div>
+                  <div class="page-intro-panel">
+                    <div class="page-intro-details">
+                      <article class="intro-detail-card">
+                        <span class="section-label">Approach</span>
+                        <h3>Clear communication at every step</h3>
+                        <p>Keep the supporting content concise and useful so the hero stays easy to scan.</p>
+                      </article>
+                      <article class="intro-detail-card intro-detail-accent">
+                        <span class="section-label">Outcome</span>
+                        <h3>Thoughtful treatment planning</h3>
+                        <p>Use this panel to frame one or two key differentiators without clutter.</p>
+                      </article>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+            <pre class="sg-code">&lt;section class="page-intro"&gt;
+  &lt;div class="section-shell page-intro-grid"&gt;
+    &lt;div class="page-intro-copy"&gt;...&lt;/div&gt;
+    &lt;div class="page-intro-panel"&gt;
+      &lt;div class="page-intro-details"&gt;...&lt;/div&gt;
+    &lt;/div&gt;
   &lt;/div&gt;
 &lt;/section&gt;</pre>
           </div>
@@ -1240,7 +1379,7 @@
               </div>
               <div class="footer-cta-actions">
                 <a class="button" href="#">Book a visit</a>
-                <a class="button-secondary" href="#">Call +1 (555) 014-2211</a>
+                <a class="button-secondary" href="#">Call 0479 24 53 423</a>
               </div>
             </aside>
             <pre class="sg-code">&lt;aside class="footer-cta" aria-label="Book a visit"&gt;
@@ -1766,13 +1905,13 @@
           </div>
           <div class="footer-cta-actions">
             <a class="button" href="contact.html">Book a visit</a>
-            <a class="button-secondary" href="tel:+15550142211">Call +1 (555) 014-2211</a>
+            <a class="button-secondary" href="tel:+15550142211">Call 0479 24 53 423</a>
           </div>
         </aside>
         <div class="footer-grid">
           <div class="footer-brand">
             <a class="footer-brand-link" href="index.html" aria-label="Poly Dental Clinic home">
-              <span class="brand-mark" aria-hidden="true">P</span>
+              <img class="brand-mark" src="assets/images/PD_LogoMark.svg" alt="Poly Dental Clinic logo" />
               <strong>Poly Dental Clinic</strong>
             </a>
             <span>Advanced dental care with a luxury patient experience.</span>
