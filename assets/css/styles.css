@@ -250,7 +250,7 @@ nav {
 .values-grid,
 .doctor-grid {
   display: grid;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 .hero-grid,
@@ -664,7 +664,7 @@ p {
 }
 
 .doctor-grid {
-  margin-top: 1.5rem;
+  margin-top: 1rem;
 }
 
 .doctor-card {
