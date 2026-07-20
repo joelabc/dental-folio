@@ -1521,7 +1521,7 @@ p {
   }
 
   .testimonial-track {
-    animation: none;
+    animation: testimonial-scroll 28s linear infinite !important;
   }
 }
 
