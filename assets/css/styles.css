@@ -25,6 +25,7 @@
   --measure: 68ch;
   --display-font: "Plus Jakarta Sans", "Segoe UI", sans-serif;
   --body-font: "Plus Jakarta Sans", "Segoe UI", sans-serif;
+  --script-font: "Allura", "Brush Script MT", cursive;
   --focus-ring: 0 0 0 4px rgba(201, 162, 39, 0.2);
   --transition: 220ms ease;
 }
@@ -320,6 +321,44 @@ nav {
   padding: clamp(2rem, 4vw, 3.2rem) 0 clamp(2.4rem, 4.6vw, 3.6rem);
 }
 
+.map-section {
+  padding: 0 0 clamp(2.5rem, 5vw, 4rem);
+}
+
+.map-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 1.25rem;
+}
+
+.map-heading h2 {
+  margin-top: 0.35rem;
+}
+
+.map-heading p {
+  max-width: 32ch;
+  color: var(--text-muted);
+  text-align: right;
+}
+
+.map-frame {
+  min-height: 24rem;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--bg-elevated);
+  box-shadow: var(--shadow-soft);
+}
+
+.map-frame iframe {
+  display: block;
+  width: 100%;
+  height: 24rem;
+  border: 0;
+}
+
 .home-intro {
   padding-top: clamp(2rem, 4vw, 2.8rem);
 }
@@ -507,7 +546,17 @@ h1 {
 }
 
 h2 {
-  font-size: 50px;
+  font-size: 100px;
+}
+
+
+
+.script-heading {
+  font-family: var(--script-font);
+  font-size: clamp(2.5rem, 3vw, 3.6rem);
+  font-weight: 400;
+  letter-spacing: 0;
+  white-space: nowrap;
 }
 
 h3 {
@@ -1184,6 +1233,10 @@ p {
     --gutter: 1.1rem;
   }
 
+  .script-heading {
+    white-space: normal;
+  }
+
   .site-header {
     background: rgba(251, 250, 247, 0.94);
   }
@@ -1289,6 +1342,22 @@ p {
 
   .page-intro-grid {
     gap: 1rem;
+  }
+
+  .map-heading {
+    align-items: start;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .map-heading p {
+    text-align: left;
+  }
+
+  .map-frame,
+  .map-frame iframe {
+    min-height: 20rem;
+    height: 20rem;
   }
 
   .page-intro-copy {
@@ -1730,7 +1799,7 @@ p {
   flex: 0 0 100%;
   margin: 0;
   position: relative;
-  aspect-ratio: 16 / 7;
+  aspect-ratio: 1600 / 799;
   background: #111;
 }
 .carousel-slide img {
@@ -1795,7 +1864,6 @@ p {
   transform: scale(1.3);
 }
 @media (max-width: 600px) {
-  .carousel-slide { aspect-ratio: 4 / 5; }
   .carousel-btn { width: 38px; height: 38px; }
 }
 
