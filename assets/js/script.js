@@ -254,3 +254,17 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
   update();
   start();
 });
+
+document.querySelectorAll("[data-image-comparison]").forEach((comparison) => {
+  const slider = comparison.querySelector(".image-comparison-slider");
+  if (!(slider instanceof HTMLInputElement)) return;
+
+  const updateComparison = () => {
+    const position = `${slider.value}%`;
+    comparison.style.setProperty("--comparison-position", position);
+    slider.setAttribute("aria-valuetext", `${slider.value}% of the before image revealed`);
+  };
+
+  slider.addEventListener("input", updateComparison);
+  updateComparison();
+});
