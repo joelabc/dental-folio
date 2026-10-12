@@ -8,6 +8,10 @@
   --text-muted: #6b655c;
   --gold: #c9a227;
   --gold-soft: #e7d08b;
+  --maroon-1: #3b1723;
+  --maroon-2: #5f2435;
+  --maroon-3: #8d4f55;
+  --heading-gradient: linear-gradient(135deg, var(--maroon-1) 0%, var(--maroon-2) 46%, var(--maroon-3) 100%);
   --accent-dark: #111111;
   --border: rgba(17, 17, 17, 0.1);
   --border-strong: rgba(201, 162, 39, 0.24);
@@ -383,9 +387,10 @@ nav {
 }
 
 .page-intro-copy h1 {
-  max-width: 10.5ch;
-  line-height: 1.04;
+  max-width: 11ch;
+  line-height: 1.12;
   margin-bottom: 0.1rem;
+  padding-bottom: 0.06em;
 }
 
 .page-intro-copy p {
@@ -454,8 +459,13 @@ nav {
   color: #f4dc94;
 }
 
-.intro-detail-card h3 {
+.page-intro-details .intro-detail-card h3,
+.page-intro-details .intro-detail-actions h3 {
   color: #fff;
+  background: none;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+  -webkit-text-fill-color: #fff;
   margin-top: 0.35rem;
 }
 
@@ -535,13 +545,19 @@ h3 {
   font-family: var(--display-font);
   font-weight: 700;
   letter-spacing: -0.03em;
+  color: transparent;
+  background: var(--heading-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 
 
 h1 {
-  font-size: clamp(2.4rem, 5.4vw, 5.2rem);
+  font-size: clamp(2.1rem, 4.5vw, 4.3rem);
   max-width: 18ch;
+  line-height: 1.08;
   text-wrap: balance;
 }
 
@@ -557,6 +573,17 @@ h2 {
   font-weight: 400;
   letter-spacing: 0;
   white-space: nowrap;
+}
+
+.page-intro-script-heading {
+  font-family: var(--script-font);
+  font-size: clamp(2.7rem, 4vw, 3.6rem);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 0.96;
+  min-width: 470px;
+  text-wrap: balance;
+  white-space: normal;
 }
 
 h3 {
@@ -1040,6 +1067,10 @@ p {
 
 .footer-cta-copy h3 {
   color: #fff;
+  background: none;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+  -webkit-text-fill-color: #fff;
   font-size: clamp(1.4rem, 2.4vw, 1.85rem);
   margin: 0;
 }
@@ -1235,6 +1266,15 @@ p {
 
   .script-heading {
     white-space: normal;
+  }
+
+  .page-intro-script-heading {
+    font-family: var(--script-font);
+    font-size: clamp(2.35rem, 10.5vw, 3.1rem);
+    line-height: 0.98;
+    max-width: 11ch;
+    white-space: normal;
+    text-wrap: balance;
   }
 
   .site-header {
@@ -1996,7 +2036,7 @@ p {
   margin: 0;
   width: 100%;
   max-width: 100%;
-  font-size: clamp(2rem, 3.3vw, 3.2rem);
+  font-size: clamp(2rem, 3vw, 3rem);
   line-height: 1.05;
   letter-spacing: -0.04em;
 }
@@ -2171,6 +2211,20 @@ p {
 .feature-copy {
   display: grid;
   gap: 0.75rem;
+}
+.feature-copy h1 {
+  font-family: var(--script-font);
+  font-size: clamp(2.8rem, 4vw, 4rem);
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: 0;
+  color: var(--ink);
+  background: none;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+  -webkit-text-fill-color: var(--ink);
+  overflow: visible;
+  text-wrap: balance;
 }
 .feature-copy h3 {
   font-size: clamp(1.4rem, 2.2vw, 1.9rem);
